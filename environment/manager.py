@@ -3,7 +3,20 @@ import boto
 import subprocess
 import time
 import sys
+import os
 from optparse import OptionParser
+
+#Validate the input parameters
+def validate():
+	print "Hawki>>> Validating the inputs"
+	if not os.path.exists(results):
+    		os.makedirs(results)
+		print "Default results folder created"
+
+	if not os.path.exist(benchmark):
+		print "Benchmark folder doesn't exist"
+		sys.exit()
+
 
 #Set cluster parameters and cluster name
 def parseOptions():
@@ -16,7 +29,7 @@ def parseOptions():
                           help="Type of instance (string) [eg: m1.small]")
 	parser.add_option("-s",dest="size", type="int", default="2",
 	                  help="Cluster Size (int)")
-	parser.add_option("-b", dest="benchmark",  default="benchmark", 
+	parser.add_option("-b", dest="benchmark",  default="../benchmark", 
                   	  help="Path to benchmark code and scripts (folder)", metavar="FILE")
 	parser.add_option("-u",dest="username", type="string", default="sgeadmin",
 	                  help="Cluster login Username (string)")
@@ -41,6 +54,7 @@ def startCluster():
 		   print "Front node :"+hostname
 	except StandardError, err:
         	print err
+		terminateCluster()
 		sys.exit()
 
 
@@ -61,6 +75,7 @@ def transferFiles():
 		print output
 	except StandardError, err: #clean up
         	print err
+		terminateCluster()
 		sys.exit()
 	
 #ssh frontend pem and run scripts waiting for results
@@ -75,6 +90,7 @@ def runBenchmark():
 		print output
 	except StandardError, err:
 	        print err
+		terminateCluster()
 	        sys.exit()
 
 
@@ -91,6 +107,7 @@ def getResults():
 
 	except StandardError, err:
 	        print err
+		terminateCluster()
 		sys.exit()
 
 
