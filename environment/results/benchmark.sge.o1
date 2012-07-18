@@ -1,0 +1,23 @@
+--------------------------------------------------
+Running MPI program <benchmark> on 2 processes
+--------------------------------------------------
+
+Preparing the matrix...
+The matrix is:
+0	
+Sending the matrix to the other nodes...
+Waiting for responses...
+The result is...
+Level 0:
+0	
+Collapsing results...
+0	
+
+real	0m4.300s
+user	0m0.024s
+sys	0m0.032s
+
+--------------------
+Finished MPI program
+--------------------
+
