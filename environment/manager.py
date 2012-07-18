@@ -66,7 +66,7 @@ def transferFiles():
 #ssh frontend pem and run scripts waiting for results
 #execute program  starcluster sshmaster --user sgeadmin pythoncluster ./instructions.sh
 def runBenchmark():
-	print ">>> Running Benchmark ..."
+	print "Hawki>>> Running Benchmark ..."
 	try:
 		process = subprocess.Popen("starcluster sshmaster --user "+username + " " + clustername +
 			" ./instructions.sh", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
