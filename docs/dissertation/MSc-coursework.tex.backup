@@ -141,7 +141,7 @@ easy, accesibility
 \section{Amazon Web Service}
 \subsection{Amazon Machine Instance}
 \subsection{Types of Instances}
-\subsection{Amazon EC2}
+\subsection{EC2}
 different instances chart and limitations of microinstance.
 \subsubsection{EC2 cluster compute}
 
@@ -185,7 +185,7 @@ Describe in detail
 \chapter{Results and Analysis}
 \section{Serial}
 for each instance type
-time to result, execution time, increasing problem size
+execution time, increasing problem size
 N-body and FFT
 
 \section{Parallel program}

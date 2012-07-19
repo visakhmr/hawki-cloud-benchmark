@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.6.26)  18 JUL 2012 19:33
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.6.26)  19 JUL 2012 01:44
 entering extended mode
  %&-line parsing enabled.
 **MSc-coursework.tex
@@ -6,19 +6,20 @@ entering extended mode
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
 yphenation, loaded.
-(/usr/share/texmf-texlive/tex/latex/base/article.cls
-Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/size12.clo
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
-\c@section=\count80
-\c@subsection=\count81
-\c@subsubsection=\count82
-\c@paragraph=\count83
-\c@subparagraph=\count84
-\c@figure=\count85
-\c@table=\count86
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
@@ -49,10 +50,10 @@ Package: t1enc 1994/06/01 Standard LaTeX package
 \footruleskip=\dimen108
 )
 \pagerulewidth=\dimen109
-\@pcclines=\count87
-\@pcclinemax=\count88
+\@pcclines=\count88
+\@pcclinemax=\count89
 \headexcess=\dimen110
-\c@codeseg=\count89
+\c@codeseg=\count90
 
 (/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
@@ -67,44 +68,44 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 
 (/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
-\Gread@gobject=\count90
+\Gread@gobject=\count91
 ))
 \t@bSkip=\dimen111
 \reverseT@bSkip=\dimen112
-\hh=\count91
-\mm=\count92
+\hh=\count92
+\mm=\count93
 RCSident: $Id: epcc.sty,v 3.6 1998/01/09 09:32:33 st Exp $
 )
-No file MSc-coursework.aux.
+(./MSc-coursework.aux)
 \openout1 = `MSc-coursework.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 50.
-(/usr/share/texmf-texlive/tex/latex/psnfss/t1ptm.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 60.
+ (/usr/share/texmf-texlive/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count93
+\scratchcounter=\count94
 \scratchdimen=\dimen113
 \scratchbox=\box26
-\nofMPsegments=\count94
-\nofMParguments=\count95
+\nofMPsegments=\count95
+\nofMParguments=\count96
 \everyMPshowfont=\toks14
-\MPscratchCnt=\count96
+\MPscratchCnt=\count97
 \MPscratchDim=\dimen114
-\MPnumerator=\count97
+\MPnumerator=\count98
 \everyMPtoPDFconversion=\toks15
 ) <logos/logo_black.pdf, id=1, 662.475pt x 191.71625pt>
 File: logos/logo_black.pdf Graphic file (type pdf)
@@ -114,94 +115,121 @@ File: logos/crest_bw.pdf Graphic file (type pdf)
 
 <use logos/crest_bw.pdf>
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 57.
+(Font)              <14.4> on input line 78.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 57.
+(Font)              <7> on input line 78.
  [1
 
 
 Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./
 logos/logo_black.pdf> <./logos/crest_bw.pdf>]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 64.
-
-No file MSc-coursework.toc.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 95.
+ [1]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 101.
+ (./MSc-coursework.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 3.
+)
 \tf@toc=\write3
 \openout3 = `MSc-coursework.toc'.
 
-[1]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 83.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 83.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 83.
- [2]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 102.
 
+[1
 
-LaTeX Warning: Citation `ref:lam' on page 1 undefined on input line 102.
+] (./MSc-coursework.lot)
+\tf@lot=\write4
+\openout4 = `MSc-coursework.lot'.
 
+ [2
 
-LaTeX Warning: Citation `ref:bloggs' on page 1 undefined on input line 105.
+] (./MSc-coursework.lof)
+\tf@lof=\write5
+\openout5 = `MSc-coursework.lof'.
 
+ [3
+
+]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 110.
+ [1]
+Chapter 1.
+[1
+
+]
+Chapter 2.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 116.
-[1]
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 123.
+[2
 
-LaTeX Warning: Reference `equation:delsplit' on page 2 undefined on input line 
-194.
+] [3]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.161 optimisation, n^
+                      2 and nlogn
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-[2]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 221.
- (/usr/share/texmf-texlive/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-<logos/eucrest.pdf, id=27, 363.3575pt x 367.3725pt>
-File: logos/eucrest.pdf Graphic file (type pdf)
- <use logos/eucrest.pdf>
-
-LaTeX Warning: Reference `fig:eucrest' on page 3 undefined on input line 251.
-
-[3 <./logos/eucrest.pdf>]
-
-LaTeX Warning: Reference `simple_table' on page 4 undefined on input line 281.
-
-
-LaTeX Warning: Reference `fig:gnu' on page 4 undefined on input line 286.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.163 \subsection
+                 {Spectral Methods}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
 
-LaTeX Warning: Reference `fig:eucrest' on page 4 undefined on input line 298.
+Overfull \hbox (48.687pt too wide) in paragraph at lines 160--163
+\T1/ptm/m/n/12 MD, About the dwarf and ap-pli-ca-tion types op-ti-mi-sa-tion, n
+$[]\OML/cmm/m/it/12 andnlognCommunicationpattern\OT1/cmr/m/n/12 !!!$ 
+ []
 
-\plotpoint=\box27
-[4] [5] (./MSc-coursework.aux)
+[4]
+Chapter 3.
+[5
 
-LaTeX Warning: There were undefined references.
+] [6]
+Chapter 4.
+[7
 
+]
+Chapter 5.
+[8
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+]
+Appendix A.
+[9
 
- ) 
+]
+Appendix B.
+[10
+
+] [11
+
+] (./MSc-coursework.aux) ) 
 Here is how much of TeX's memory you used:
- 1289 strings out of 495061
- 15039 string characters out of 1182621
- 79736 words of memory out of 3000000
- 4489 multiletter control sequences out of 15000+50000
- 32463 words of font info for 46 fonts, out of 3000000 for 9000
+ 1272 strings out of 495061
+ 14797 string characters out of 1182621
+ 73178 words of memory out of 3000000
+ 4468 multiletter control sequences out of 15000+50000
+ 33567 words of font info for 45 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 27i,12n,37p,220b,268s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/a
-msfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
-mr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
-r/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-texl
-ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
-times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on MSc-coursework.pdf (8 pages, 176927 bytes).
+ 27i,12n,37p,192b,206s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc
+}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/typ
+e1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.
+pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
+Output written on MSc-coursework.pdf (17 pages, 112195 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
+ 86 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
