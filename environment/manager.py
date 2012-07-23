@@ -84,7 +84,7 @@ def runBenchmark():
 	print "Hawki>>> Running Benchmark ..."
 	try:
 		process = subprocess.Popen("starcluster sshmaster --user "+username + " " + clustername +
-			" ./instructions.sh", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+			" ./submit.pl", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 		output,stderr = process.communicate()
 		status = process.poll()
 		print output
