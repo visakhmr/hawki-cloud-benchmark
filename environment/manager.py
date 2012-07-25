@@ -13,10 +13,12 @@ def validate():
     		os.makedirs(results)
 		print "Default results folder created"
 
-	if not os.path.exist(benchmark):
-		print "Benchmark folder doesn't exist"
+	if not os.path.exists(benchmark+"/"+runscript):
+		print "Benchmark script "+runscript+" doesn't exist, provide path -b <benchmark folder path>"
 		sys.exit()
 
+	clusterparams = " -n " + str(imageid) + " -s " + str(size) + " -u " + str(username) + " -i " + str(instancetype)
+	return clusterparams
 
 #Set cluster parameters and cluster name
 def parseOptions():
@@ -42,7 +44,7 @@ def parseOptions():
 def startCluster():
 	print "Hawki>>> Starting cluster ..."+clustername
 	try:
-		process = subprocess.Popen("starcluster start "+ clustername, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+		process = subprocess.Popen("starcluster start "+ clusterparams + " " + clustername, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         	output,stderr = process.communicate()
         	status = process.poll()
 		output=output.splitlines()
@@ -84,7 +86,7 @@ def runBenchmark():
 	print "Hawki>>> Running Benchmark ..."
 	try:
 		process = subprocess.Popen("starcluster sshmaster --user "+username + " " + clustername +
-			" ./submit.pl", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+			" ./" + runscript + " "+str(size), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 		output,stderr = process.communicate()
 		status = process.poll()
 		print output
@@ -104,6 +106,7 @@ def getResults():
 	        status = process.poll()
 		#get frontend nodename
 		print output
+		#TODO save results in database
 
 	except StandardError, err:
 	        print err
@@ -127,7 +130,9 @@ def terminateCluster():
 
 #Start
 
+runscript="submit.pl"
 (clustername, imageid, instancetype, size, benchmark, username, results) = parseOptions()
+clusterparams=validate()
 startCluster()
 transferFiles()
 runBenchmark()

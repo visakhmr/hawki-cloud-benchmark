@@ -1,13 +1,13 @@
 #!/usr/bin/perl -w
 
 $executable="fft_benchmark";
-$numproc=2;
+$numproc=$ARGV[0];
 
 #Compile the source
 system("make");
 
         # submit job
-        $cmd = "qsub -cwd -pe orte $numProc $executable.sge";
+        $cmd = "qsub -cwd -pe orte $numproc $executable.sge";
         print $cmd."\n";
 
         my $ret = `$cmd`;
@@ -17,7 +17,7 @@ system("make");
         my @words = split(/ /,$ret);
         my $jobId = $words[2];
 
-        print "Job ID: $jobId submitted for $numProc processes\n";
+        print "Job ID: $jobId submitted for $numproc processes\n";
 
         #check queue
         while(1)
@@ -36,5 +36,5 @@ system("make");
                 sleep(2);
         }
 
-        print "Job ID: $jobId completed $numProc processes\n";
+        print "Job ID: $jobId completed $numproc processes\n";
         my $file = "image.sge.o$jobId";

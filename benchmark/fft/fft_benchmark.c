@@ -26,6 +26,39 @@
 #include "sys/sysinfo.h"
 
 
+
+
+struct CpuInfo {
+	char vendor_id[50];
+	int family;
+	char model[50];
+	float freq;
+	char cache[20];
+};
+
+void cpuinfo()
+{
+	struct CpuInfo info = {"", 0, "", 0.0, ""};
+	
+	FILE *cpuInfo;
+	
+	if( ( (cpuInfo = fopen("/proc/cpuinfo", "rb")) == NULL ) ) {
+		printf("ERRORE! Impossibile aprire il file relativo alla CPU.");
+		}
+	else {
+		while (!feof(cpuInfo)) {
+			fread(&info, sizeof(struct CpuInfo), 1, cpuInfo);
+			
+			if(info.family !=0) {
+				printf("%s\n%d\n%s\n%.2f\n%s\n", info.vendor_id, info.family, info.model, info.freq, info.cache);
+				}
+			}
+		}
+}
+
+
+
+
 double second()
 {
         struct timeval tp;
@@ -47,7 +80,10 @@ int main(int argc, char **argv)
   double  t0, t1; /* time_t is defined on <bits/types.h> as long */
   clock_t c0, c1; /* clock_t is defined on <bits/types.h> as long */
   struct sysinfo memInfo;
+  char hostname[100];
 
+  gethostname(hostname,100);
+  cpuinfo();
   /* Get name of input file of time-domain samples x. */
   strcpy(file, "data.txt");
 
@@ -88,10 +124,7 @@ int main(int argc, char **argv)
   
   t1 = second();
   c1 = clock();
-
-  printf ("\tFILE read clock time: %f seconds\n", (float) (t1 - t0));
-  printf ("\tFILE read CPU time:        %f seconds\n", (float) (c1 - c0)/CLOCKS_PER_SEC);
-
+  printf ("\n\tFile read..Host: %s// Clock time: %f seconds // CPU time: %f", hostname, (float) (t1 - t0), (float) (c1 - c0)/CLOCKS_PER_SEC);
 
   // Calculate FFT
   t0 = second();
@@ -99,10 +132,7 @@ int main(int argc, char **argv)
   fft(N, x, X);
   t1 = second();
   c1 = clock();
-
-  printf ("\tElapsed wall clock time: %f seconds\n", (float) (t1 - t0));
-  printf ("\tElapsed CPU time:        %f seconds\n", (float) (c1 - c0)/CLOCKS_PER_SEC);
-
+  printf ("\n\tExecution..Host: %s// Clock time: %f seconds // CPU time: %f", hostname, (float) (t1 - t0), (float) (c1 - c0)/CLOCKS_PER_SEC);
 
   // Free memory
   free(x);

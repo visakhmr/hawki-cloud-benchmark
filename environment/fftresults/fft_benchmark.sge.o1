@@ -1,0 +1,347 @@
+--------------------------------------------------
+Running MPI program <fft_benchmark> on 5 processes
+--------------------------------------------------
+
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 26
+model name	: Intel(R) Xeon(R) CPU           E5507  @ 2.27GHz
+steppÿ
+1869417014
+del		: 26
+model name	: Intel(R) Xeon(R) CPU           E5507  @ 2.27GHz
+steppÿ
+0.00
+507  @ 2.27GHz
+steppÿ
+ing	: 5
+cpu MHz		: 2266.746
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	ÿ
+1633905011
+l id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	ÿ
+0.00
+	: 0
+initial apicid	ÿ
+: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu de tsc msr pae cx8 sep cmov pat clflush mmx fxsr sse sse2ÿ
+151613559
+: yes
+flags		: fpu de tsc msr pae cx8 sep cmov pat clflush mmx fxsr sse sse2ÿ
+299672710213706867984594691424256.00
+sh mmx fxsr sse sse2ÿ
+ ss ht syscall nx lm constant_tsc up rep_good nopl nonstop_tsc aperfmperf pni ssse3 cx16 sse4_1 sse4_2 popcnt hypervisor lahf_lm dtsÿ
+1953721967
+op_tsc aperfmperf pni ssse3 cx16 sse4_1 sse4_2 popcnt hypervisor lahf_lm dtsÿ
+75329443672140532370987644469903360.00
+pervisor lahf_lm dtsÿ
+
+bogomips	: 4533.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+ dtsÿ
+540674420
+64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+ dtsÿ
+4856372544324445050584557227606016.00
+er management:
+
+ dtsÿ
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 44
+model name	: Intel(R) Xeon(R) CPU           E5645  @ 2.40GHz
+steppÿ
+1869417014
+del		: 44
+model name	: Intel(R) Xeon(R) CPU           E5645  @ 2.40GHz
+steppÿ
+0.00
+645  @ 2.40GHz
+steppÿ
+ing	: 2
+cpu MHz		: 2000.070
+cache size	: 12288 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicidÿ
+1667855225
+al id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicidÿ
+processor	: 0
+17221018503426540044288.00
+vendor_id	: AuthenticAMD
+		: 0
+cpu family	: 15
+initial apicidÿ
+model		: 65
+	: 36
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+model name	: Dual-Core AMD Opteron(tm) Processor 2218 HE
+flags		: fpu de tsc msr pae cx8 sep cmov pat clflush mmx fxsr sse ssÿ
+steppingÿ
+1886849585
+1829385521
+		: yes
+odel		: 65
+model name	: Dual-Core AMD Opteron(tm) Processor 2218 HE
+flags		: fpu de tsc msr pae cx8 sep cmov pat clflush mmx fxsr sse ssÿ
+steppingÿ
+279076755865885682434048.00
+18174022422504823694563710337024.00
+lush mmx fxsr sse ssÿ
+sor 2218 HE
+e2 ss ht syscall nx lm constant_tsc up rep_good nopl nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt aes hypervisor lahf_lÿ
+steppingÿ
+1852796448
+	: 3
+cpu MHz		: 2600.000
+cache size	: 1024 KB
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 1
+wp		: yes
+stop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt aes hypervisor lahf_lÿ
+flags		: fpu de tsc msr pae cÿ
+184991793434335379456.00
+1936029984
+es hypervisor lahf_lÿ
+
+fpu_exception	: yes
+cpuid level	: 1
+wp		: yes
+m
+bogomips	: 4000.14
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+flags		: fpu de tsc msr pae cÿ
+f_lÿ
+0.00
+973698158
+fpu de tsc msr pae cÿ
+ 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+x8 cmov pat clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt lm 3dnowext 3dnow up rep_good nopl pni cx16 hypervisor lahf_lm cÿ
+f_lÿ
+1702391149
+74289001630899112707377594368.00
+xt fxsr_opt lm 3dnowext 3dnow up rep_good nopl pni cx16 hypervisor lahf_lm cÿ
+wer management:
+
+0.00
+f_lÿ
+hypervisor lahf_lm cÿ
+mp_legacy extapic cr8_legacy
+bogomips	: 5200.00
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bÿ
+1702521203
+	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bÿ
+0.00
+address sizes	: 40 bÿ
+its physical, 48 bits virtual
+power management: ts fid vid ttp tm stc
+
+s
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bÿ
+1981834345
+id ttp tm stc
+
+s
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bÿ
+0.00
+address sizes	: 40 bÿ
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 26
+model name	: Intel(R) Xeon(R) CPU           E5507  @ 2.27GHz
+steppÿ
+1869417014
+del		: 26
+model name	: Intel(R) Xeon(R) CPU           E5507  @ 2.27GHz
+steppÿ
+0.00
+507  @ 2.27GHz
+steppÿ
+ing	: 5
+cpu MHz		: 2266.746
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	ÿ
+1633905011
+l id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	ÿ
+0.00
+	: 0
+initial apicid	ÿ
+: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu de tsc msr pae cx8 sep cmov pat clflush mmx fxsr sse sse2ÿ
+151613559
+: yes
+flags		: fpu de tsc msr pae cx8 sep cmov pat clflush mmx fxsr sse sse2ÿ
+299672710213706867984594691424256.00
+sh mmx fxsr sse sse2ÿ
+ ss ht syscall nx lm constant_tsc up rep_good nopl nonstop_tsc aperfmperf pni ssse3 cx16 sse4_1 sse4_2 popcnt hypervisor lahf_lm dtsÿ
+1953721967
+op_tsc aperfmperf pni ssse3 cx16 sse4_1 sse4_2 popcnt hypervisor lahf_lm dtsÿ
+75329443672140532370987644469903360.00
+pervisor lahf_lm dtsÿ
+
+bogomips	: 4533.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+ dtsÿ
+540674420
+64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+ dtsÿ
+4856372544324445050584557227606016.00
+er management:
+
+ dtsÿ
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 15
+model		: 65
+model name	: Dual-Core AMD Opteron(tm) Processor 2218 HE
+steppingÿ
+1829385521
+odel		: 65
+model name	: Dual-Core AMD Opteron(tm) Processor 2218 HE
+steppingÿ
+18174022422504823694563710337024.00
+sor 2218 HE
+steppingÿ
+	: 3
+cpu MHz		: 2600.000
+cache size	: 1024 KB
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 1
+wp		: yes
+flags		: fpu de tsc msr pae cÿ
+1936029984
+
+fpu_exception	: yes
+cpuid level	: 1
+wp		: yes
+flags		: fpu de tsc msr pae cÿ
+0.00
+fpu de tsc msr pae cÿ
+x8 cmov pat clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt lm 3dnowext 3dnow up rep_good nopl pni cx16 hypervisor lahf_lm cÿ
+1702391149
+xt fxsr_opt lm 3dnowext 3dnow up rep_good nopl pni cx16 hypervisor lahf_lm cÿ
+0.00
+hypervisor lahf_lm cÿ
+mp_legacy extapic cr8_legacy
+bogomips	: 5200.00
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bÿ
+1702521203
+	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bÿ
+0.00
+address sizes	: 40 bÿ
+its physical, 48 bits virtual
+power management: ts fid vid ttp tm stc
+
+s
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bÿ
+1981834345
+id ttp tm stc
+
+s
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bÿ
+0.00
+address sizes	: 40 bÿ
+N = 524288
+N = 524288
+N = 524288
+N = 524288
+N = 524288
+	File read..Host: node003// Clock time: 0.597435 seconds // CPU time: 0.600000
+	Execution..Host: node003// Clock time: 2.026226 seconds // CPU time: 2.020000	File read..Host: node002// Clock time: 0.628436 seconds // CPU time: 0.630000
+	Execution..Host: node002// Clock time: 2.460549 seconds // CPU time: 2.450000	File read..Host: master// Clock time: 0.688097 seconds // CPU time: 0.680000
+	Execution..Host: master// Clock time: 2.491644 seconds // CPU time: 2.470000	File read..Host: node001// Clock time: 0.723930 seconds // CPU time: 0.720000
+	Execution..Host: node001// Clock time: 3.739409 seconds // CPU time: 3.730000	File read..Host: node004// Clock time: 0.808595 seconds // CPU time: 0.810000
+	Execution..Host: node004// Clock time: 4.186076 seconds // CPU time: 4.180000
+real	0m9.941s
+user	0m3.676s
+sys	0m0.160s
+
+--------------------
+Finished MPI program
+--------------------
+
