@@ -1,35 +1,37 @@
 /*
- * $Id: control-c.c,v 1.2 2002/01/08 12:32:48 spb Exp spb $
- *
  * Control program for the MD update
  *
  */
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
-
+#include <time.h>
 #define DECL
 #include "coord.h"
 
-double second(void); 
-int main(int argc, char *argv[]){
+
+double second()
+{
+        struct timeval tp;
+        struct timezone tzp;
+        int i = gettimeofday(&tp,&tzp);
+        return ( (double) tp.tv_sec + (double) tp.tv_usec * 1.e-6 );
+}
+
+
+int main(int argc, char *argv){
   int i,j;
-FILE *in, *out;
-double start,stop;
- char name[80];
-/*  timestep value */
-double dt=0.02;
-
+  FILE *in, *out;
+  char name[80];  
+  double  t0, t1;	    /* wall time variables */
+  clock_t c0, c1; /* clock_t is defined on <bits/types.h> as long */
+  char hostname[100]; 
+  double dt=0.02;  /*  timestep value */
+  int Nstep=1;
+  gethostname(hostname,100);
 /*  number of timesteps to use. */
-int Nstep=100;
- int Nsave=5;
-  if( argc > 1 ){
-   Nstep=atoi(argv[1]);
-  }
-
-
+  
 /* read the initial data from a file */
-
   collisions=0;
   in = fopen("input.dat","r");
 
@@ -46,17 +48,16 @@ int Nstep=100;
 /*
  * Run Nstep timesteps and time how long it took
  */
+  t0 = second();
+  c0 = clock();
 
-  for(j=1;j<=Nsave;j++){
-      start=second();
-      evolve(Nstep,dt); 
-      stop=second();
+  evolve(Nstep,dt); 
 
-
-      printf("%d timesteps took %f seconds\n",j*Nstep,stop-start);
-      printf("collisions %d\n",collisions);
-
-/* write final result to a file */
+  t1 = second();
+  c1 = clock();
+  printf ("\nExecution..Host: %s// Clock time: %f seconds // CPU time: %f\n", hostname, (float) (t1 - t0), (float) (c1 - c0)/CLOCKS_PER_SEC);
+ 
+/* WRITE final result to a file */
       sprintf(name,"output.dat%03d",j*Nstep);
       out = fopen(name,"w");
 
@@ -72,23 +73,5 @@ int Nstep=100;
 		particle[i].vel[Xcoord], particle[i].vel[Ycoord], particle[i].vel[Zcoord]);
       }
       fclose(out);
-  }
-
-}
-
-double second()
-{
-/* struct timeval { long        tv_sec; 
-            long        tv_usec;        };
-
-struct timezone { int   tz_minuteswest;
-             int        tz_dsttime;      };     */
-
-        struct timeval tp;
-        struct timezone tzp;
-        int i;
-
-        i = gettimeofday(&tp,&tzp);
-        return ( (double) tp.tv_sec + (double) tp.tv_usec * 1.e-6 );
 }
 

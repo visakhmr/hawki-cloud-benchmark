@@ -1,21 +1,3 @@
-/*----------------------------------------------
-   fft_test.c - demonstration program for fft.c
-  ----------------------------------------------*/
-
-/******************************************************************************
- * This program demonstrates how to use the file fft.c to calculate an FFT    *
- * of given time-domain samples, as well as to calculate an inverse FFT       *
- * (IFFT) of given frequency-domain samples.  First, N complex-valued time-   *
- * domain samples x, in rectangular form (Re x, Im x), are read from a        *
- * specified file; the 2N values are assumed to be separated by whitespace.   *
- * Then, an N-point FFT of these samples is found by calling the function     *
- * fft, thereby yielding N complex-valued frequency-domain samples X in       *
- * rectangular form (Re X, Im X).  Next, an N-point IFFT of these samples is  *
- * is found by calling the function ifft, thereby recovering the original     *
- * samples x.  Finally, the calculated samples X are saved to a specified     *
- * file, if desired.                                                          *
- ******************************************************************************/
-
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
@@ -24,8 +6,6 @@
 #include "fft.c"
 #include "sys/types.h"
 #include "sys/sysinfo.h"
-
-
 
 
 struct CpuInfo {
@@ -57,8 +37,6 @@ void cpuinfo()
 }
 
 
-
-
 double second()
 {
         struct timeval tp;
@@ -77,13 +55,13 @@ int main(int argc, char **argv)
   double (*X)[2];           /* pointer to frequency-domain samples */
   double dummy;             /* scratch variable */
   FILE *fp;                 /* file pointer */
-  double  t0, t1; /* time_t is defined on <bits/types.h> as long */
+  double  t0, t1;	    /* wall time variables */
   clock_t c0, c1; /* clock_t is defined on <bits/types.h> as long */
   struct sysinfo memInfo;
   char hostname[100];
 
   gethostname(hostname,100);
-  cpuinfo();
+//  cpuinfo();
   /* Get name of input file of time-domain samples x. */
   strcpy(file, "data.txt");
 

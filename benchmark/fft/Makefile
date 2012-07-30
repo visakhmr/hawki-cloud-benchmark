@@ -3,7 +3,7 @@ CFLAGS = -c -lm
 LDFLAGS =
 SOURCES = fft_benchmark.c
 OBJECTS=$(SOURCES:.c=.o)
-EXECUTABLE=fft_benchmark
+EXECUTABLE=benchmark
 ARGS=data.txt
 
 all: $(SOURCES) $(EXECUTABLE)

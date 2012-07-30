@@ -8,7 +8,7 @@ from optparse import OptionParser
 
 #Validate the input parameters
 def validate():
-	print "Hawki>>> Validating the inputs"
+	print "\nHawki>>> Validating the inputs"
 	if not os.path.exists(results):
     		os.makedirs(results)
 		print "Default results folder created"
@@ -29,7 +29,7 @@ def parseOptions():
                           help="Image id (string) [eg: ami-999d49f0]")
 	parser.add_option("-t", dest="instancetype", type="string", default="m1.small",
                           help="Type of instance (string) [eg: m1.small]")
-	parser.add_option("-s",dest="size", type="int", default="2",
+	parser.add_option("-s",dest="size", type="int", default="1",
 	                  help="Cluster Size (int)")
 	parser.add_option("-b", dest="benchmark",  default="../benchmark", 
                   	  help="Path to benchmark code and scripts (folder)", metavar="FILE")
@@ -42,7 +42,7 @@ def parseOptions():
 
 #Start cluster using starcluster tool, waiting for ready
 def startCluster():
-	print "Hawki>>> Starting cluster ..."+clustername
+	print "\nHawki>>> Starting cluster ..."+clustername
 	try:
 		process = subprocess.Popen("starcluster start "+ clusterparams + " " + clustername, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         	output,stderr = process.communicate()
@@ -68,7 +68,7 @@ def startCluster():
 #Transfer and extract  the benchmark program and parameters to the instance
 #scp using pem file source files and scripts to front node and sge file to front end
 def transferFiles():
-	print "Hawki>>> Transferring files ..."
+	print "\nHawki>>> Transferring files ..."
 	try:
        		process = subprocess.Popen("starcluster put -u " + username +" " + clustername + " " + benchmark + "/ ./", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 		output,stderr = process.communicate()
@@ -83,7 +83,7 @@ def transferFiles():
 #ssh frontend pem and run scripts waiting for results
 #execute program  starcluster sshmaster --user sgeadmin pythoncluster ./instructions.sh
 def runBenchmark():
-	print "Hawki>>> Running Benchmark ..."
+	print "\nHawki>>> Running Benchmark ..."
 	try:
 		process = subprocess.Popen("starcluster sshmaster --user "+username + " " + clustername +
 			" ./" + runscript + " "+str(size), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -98,7 +98,7 @@ def runBenchmark():
 
 #Transfer the results to the instance
 def getResults():
-	print ">>> Gathering results ..."
+	print "\nHawki>>> Gathering results ..."
 	try:
 	        process = subprocess.Popen("starcluster get -u "+username+" "+clustername+" ./*.sge.o* " + 
 	                results+"/", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -116,7 +116,7 @@ def getResults():
 
 #stop instance using starcluster, waiting for completion
 def terminateCluster():
-	print ">>> Terminating cluster ..."
+	print "\nHawki>>> Terminating cluster ..."
 	try:
 		process = subprocess.Popen("starcluster terminate -c "+clustername, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 		output,stderr = process.communicate()

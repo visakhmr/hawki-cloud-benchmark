@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-$executable="fft_benchmark";
+$executable="benchmark";
 $numproc=$ARGV[0];
 
 #Compile the source

@@ -1,20 +1,20 @@
-SRC=MD.c control.c util.c 
-OBJ=$(SRC:.c=.o)
-CC=gcc
-CFLAGS=	-O4
+CC = gcc  #change compiler for mpi programs (mpicc)
+CFLAGS = -c 
+LDFLAGS = -lm
+SOURCES = control.c MD.c util.c 
+OBJECTS=$(SOURCES:.c=.o)
+EXECUTABLE=benchmark
+ARGS=
 
-all: MD
+all: $(SOURCES) $(EXECUTABLE)
+        
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 
-MD: $(OBJ)
-	$(CC) $(CFLAGS)  -o $@  $(OBJ) -lm
-
-
-output.dat: MD input.dat
-	./MD
-
+.c.o:
+	$(CC) $(CFLAGS) $< -o $@
 clean:
-	rm -f MD $(OBJ) 
+	rm $(EXECUTABLE) $(OBJECTS)
 
-$(OBJ) : coord.h Makefile
-
-
+run :
+	@$(MAKE) && ./$(EXECUTABLE) $(ARGS)

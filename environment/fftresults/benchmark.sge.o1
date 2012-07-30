@@ -1,0 +1,15 @@
+--------------------------------------------------
+Running MPI program <benchmark> on 1 processes
+--------------------------------------------------
+
+N = 524288
+	File read..Host: master// Clock time: 0.268338 seconds // CPU time: 0.270000
+	Execution..Host: master// Clock time: 1.304412 seconds // CPU time: 1.300000
+real	0m2.903s
+user	0m1.744s
+sys	0m0.060s
+
+--------------------
+Finished MPI program
+--------------------
+
