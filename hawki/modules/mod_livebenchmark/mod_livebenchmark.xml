@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+    <!-- Name of the Module -->
+	<name>Live Benchmark</name> 
+ 
+    <!-- Name of the Author -->
+	<author>Visakh Muraleedharan</author> 
+ 
+    <!-- Version Date of the Module -->
+	<creationDate>2012-07-06</creationDate> 
+ 
+    <!-- Copyright information -->
+	<copyright>All rights reserved by Cyberturn 2012</copyright> 
+ 
+    <!-- License Information -->
+	<license>GPL 2.0</license> 
+ 
+    <!-- Author's email address -->
+	<authorEmail>visakh.mr@gmail.com</authorEmail> 
+ 
+    <!-- Author's website -->
+	<authorUrl>www.cyberturn.in</authorUrl> 
+ 
+    <!-- Module version number -->
+	<version>1.0.0</version> 
+ 
+    <!-- Description of what the module does -->
+	<description>Run Live benchmark on demand</description>
+ 
+    <!-- Listing of all files that should be installed for the module to function -->
+	<files>
+        <!-- The "module" attribute signifies that this is the main controller file -->
+		<filename module="mod_livebenchmark">mod_livebenchmark.php</filename>
+		<filename>index.html</filename>
+	</files>
+ 
+    <!-- Optional parameters -->
+	<params />
+</install>
