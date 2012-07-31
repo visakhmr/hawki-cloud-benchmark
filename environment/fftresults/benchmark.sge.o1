@@ -3,11 +3,11 @@ Running MPI program <benchmark> on 1 processes
 --------------------------------------------------
 
 N = 524288
-	File read..Host: master// Clock time: 0.268338 seconds // CPU time: 0.270000
-	Execution..Host: master// Clock time: 1.304412 seconds // CPU time: 1.300000
-real	0m2.903s
-user	0m1.744s
-sys	0m0.060s
+	File read..Host: master// Clock time: 0.225669 seconds // CPU time: 0.230000
+	Execution..Host: master// Clock time: 1.359814 seconds // CPU time: 1.340000
+real	0m3.336s
+user	0m1.740s
+sys	0m0.072s
 
 --------------------
 Finished MPI program

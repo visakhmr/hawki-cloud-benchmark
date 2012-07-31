@@ -108,7 +108,7 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
 	//Read input id from user
 	$database =& JFactory::getDBO();
 	//Select all published benchmarks
-	$inputlist="SELECT `inputid`, `benchmarkid`, `inputname`,`state` from cx_input where benchmarkid=$benchmarkid and state=1";
+	$inputlist="SELECT `inputid`, `benchmarkid`, `inputstring`,`state` from cx_input where benchmarkid=$benchmarkid and state=1";
 	$database->setQuery ($inputlist);
 	$database->query();
 	
@@ -132,12 +132,12 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
 	                         foreach ( $inputs as $input ){?>
 	                          <?php if($inputid == $input->inputid) {?>
 	                           <option selected="selected" value="<?php echo $input->inputid;?>">
-					<?php echo $input->inputname; ?>
+					<?php echo $input->inputstring; ?>
 				   </option>
 	                          <?php }
 	                          else{
 	                          ?>
-	                           <option value="<?php echo $input->inputid;?>"><?php echo $input->inputname; ?></option>
+	                           <option value="<?php echo $input->inputid;?>"><?php echo $input->inputstring; ?></option>
 	                          <?php
 	                           }
         	                 }
@@ -169,8 +169,8 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
         	{	$benchmark = $database->loadAssoc();
 		}
 
-		//Get inputname using input id
-                $inputlist="SELECT `inputname` from cx_input where inputid=$inputid and state=1";
+		//Get inputstring using input id
+                $inputlist="SELECT `inputstring` from cx_input where inputid=$inputid and state=1";
                 $database->setQuery ($inputlist);
                 $database->query();
                 
@@ -196,8 +196,8 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
                 }
 
 
-		//RUN using sourcepath, resultpath, inputname
-		#echo $benchmark['sourcepath'].$benchmark['resultpath'].$input['inputname'].$instance['instancename'];
+		//RUN using sourcepath, resultpath, inputstring
+		#echo $benchmark['sourcepath'].$benchmark['resultpath'].$input['inputstring'].$instance['instancename'];
 		echo "<pre>";
 		$cmd = "python /home/ubuntu/Hawk-i/environment/manager.py -t ".$instance['instancename']." -b /home/ubuntu/Hawk-i/benchmark/".$benchmark['sourcepath']." -r /home/ubuntu/Hawk-i/environment/".$benchmark['resultpath']." -s $instancecount";
 		#echo $cmd;
