@@ -34,13 +34,15 @@
 #
 
 MPIEXE=`basename $REQUEST .sge`
-INPUT=`data.txt`
+INPUT=`echo data.txt`
+#INPUT=`echo data.txt`
+
 echo "--------------------------------------------------"
 echo "Running MPI program <$MPIEXE> on" $NSLOTS "processes"
 echo "--------------------------------------------------"
 echo
 
-(time mpirun -np $NSLOTS ./$MPIEXE $INPUT $OUTPUT) 2>&1
+(time -p  mpirun -np $NSLOTS ./$MPIEXE $INPUT $OUTPUT) 2>&1
 
 echo
 echo "--------------------"

@@ -5,6 +5,7 @@ import time
 import sys
 import os
 import MySQLdb
+import shutil
 from optparse import OptionParser
 
 #Validate the input parameters
@@ -23,8 +24,9 @@ def validate():
 
 #Set cluster parameters and cluster name
 def parseOptions():
+	tempname=str(time.time());
 	parser = OptionParser()
-	parser.add_option("-N", dest="clustername", type="string", default=str(time.time()),
+	parser.add_option("-N", dest="clustername", type="string", default=tempname,
 	                  help="Name of cluster (string)")
 	parser.add_option("-i", dest="imageid", type="string", default="ami-999d49f0",
                           help="Image id (string) [eg: ami-999d49f0]")
@@ -36,7 +38,7 @@ def parseOptions():
                   	  help="Path to benchmark code and scripts (folder)", metavar="FILE")
 	parser.add_option("-u",dest="userid", type="int", default=0,
 	                  help="Web userid (for web interface)")
-	parser.add_option("-r",dest="results", default="results",
+	parser.add_option("-r",dest="results", default=tempname+"_results",
                   	  help="Path to benchmark results folder", metavar="FILE")
 	parser.add_option("-a",dest="archive", type="int", default=0,
                           help="Archive results to database (0/1)")
@@ -58,12 +60,11 @@ def startCluster():
 		 if 'The master node is' in line:
 		   line=line.split(' ')
  		   hostname =  line[-1]
-		   print "Front node :"+hostname
+		   #print "Front node :"+hostname
 	except StandardError, err:
         	print err
 		terminateCluster()
 		sys.exit()
-
 
 #compile and execute scripts[with threshold limit] to run in front end are in instructions.sh
 #make
@@ -79,7 +80,7 @@ def transferFiles():
 		output,stderr = process.communicate()
         	status = process.poll()
 		#get frontend nodename
-		print output
+		#print output
 	except StandardError, err: #clean up
         	print err
 		terminateCluster()
@@ -91,10 +92,10 @@ def runBenchmark():
 	print "\nHawki>>> Running Benchmark ..."
 	try:
 		process = subprocess.Popen("starcluster sshmaster --user "+username + " " + clustername +
-			" ./" + runscript + " "+str(size), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+			" ./" + runscript + " "+str(size)+" "+inputdata, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 		output,stderr = process.communicate()
 		status = process.poll()
-		print output
+		#print output
 	except StandardError, err:
 	        print err
 		terminateCluster()
@@ -110,90 +111,107 @@ def getResults():
 		output,stderr = process.communicate()
 	        status = process.poll()
 		#get frontend nodename
-		print output
+		#print output
 
 	except StandardError, err:
 	        print err
 		terminateCluster()
 		sys.exit()
 
-
 #Store results in database
-def saveResults(output, userid):
-	#Save results in variables
-	benchmarkid=0
-	instanceid=0
-	inputid=0
-	output=output.split(" ");
-	readtime=float(output[0])
-	computationtime=float(output[1])
-	writetime=float(output[2])
-	memoryused=float(output[3])
-	cpuused=float(output[4])
-	
-	db = MySQLdb.connect("localhost","root","amma123","ubuntu_hawki" )
-        cursor = db.cursor()
-	benchmarks = benchmark.split('/')
-
-        sql = "SELECT benchmarkid from cx_benchmarks where sourcepath like '%s'" % (benchmarks[-1])
-	print sql
-        try:
-                cursor.execute(sql)
-        	benchmarkid = cursor.fetchone()#benchmarkid
-		benchmarkid=benchmarkid[0]
-		print benchmarkid
-                db.commit()
-        except:
-                db.rollback()
-		benchmarkid=0
-
-        sql = "SELECT instanceid from cx_instances where instancename like '%s'" % (instancetype)
-	print sql
-        try:
-                cursor.execute(sql)
-        	instanceid = cursor.fetchone()#instanceid
-		instanceid=instanceid[0]
-                db.commit()
-        except:
-                db.rollback()
-		instanceid=0
-
-        sql = "SELECT inputid from cx_input where inputstring like '%s' and benchmarkid = %d" % (inputdata, benchmarkid)
-	print sql
-        try:
-                cursor.execute(sql)
-        	inputid = cursor.fetchone()#inputid
-		inputid=inputid[0]
-                db.commit()
-        except:
-                db.rollback()
-		inputid=0
-
-	#Insert into results table
-	sql = "INSERT INTO cx_results (`benchmarkid` , `instanceid` , `inputid` , `userid` , `readtime` , `computationtime`, `writetime` , `memoryused` , `cpuused`) \
-				VALUES (%d, %d, %d, %d, %f, %f, %f, %f, %f )" % (benchmarkid, instanceid, inputid, userid, readtime, computationtime, writetime, memoryused, cpuused)
-	print sql
+def saveResults():
+	print "\nHawki>>> Saving results ..."
 	try:
-   		cursor.execute(sql)
-   		db.commit()
-	except:
-		db.rollback()
-	db.close()
-
+		#Save results in variables from results folder
+		output = {}	#empty array to store results
+		outputfile = open(results+"/benchmark.sge.o1",'r')	#read file
+		x = outputfile.readline()
+		status=1
+		timetocompletion = 0.0
+		while (x):
+			var = x.split(' ')
+			if (var[0]=='real'):
+				timetocompletion = float(var[-1])
+				print "var1:"+var[0]+" var2:"+var[-1]
+			if(var[0]=='status'):
+				status=1	
+				timetocompletion=0.0
+			x=outputfile.readline()
+	
+		#delete directories
+		#os.removedirs(results)
+		shutil.rmtree(results)
+	
+		benchmarkid=0
+		instanceid=0
+		inputid=0
+	
+		db = MySQLdb.connect("localhost","root","amma123","ubuntu_hawki" )
+	        cursor = db.cursor()
+		benchmarks = benchmark.split('/')
+	
+	        sql = "SELECT benchmarkid from cx_benchmarks where sourcepath like '%s'" % (benchmarks[-1])
+		#print sql
+	        try:
+	                cursor.execute(sql)
+	        	benchmarkid = cursor.fetchone()#benchmarkid
+			benchmarkid=benchmarkid[0]
+			print benchmarkid
+	                db.commit()
+	        except:
+	                db.rollback()
+			benchmarkid=0
+	
+	        sql = "SELECT instanceid from cx_instances where instancename like '%s'" % (instancetype)
+		#print sql
+	        try:
+	                cursor.execute(sql)
+	        	instanceid = cursor.fetchone()#instanceid
+			instanceid=instanceid[0]
+	                db.commit()
+	        except:
+	                db.rollback()
+			instanceid=0
+	
+	        sql = "SELECT inputid from cx_input where inputstring like '%s' and benchmarkid = %d" % (inputdata, benchmarkid)
+		#print sql
+        	try:
+       	        	cursor.execute(sql)
+       		 	inputid = cursor.fetchone()#inputid
+			inputid=inputid[0]
+                	db.commit()
+	        except:	
+	                db.rollback()
+			inputid=0
+	
+		#Insert into results table
+		sql = "INSERT INTO cx_results (`benchmarkid` , `instanceid` , `inputid` , `userid` , `timetocompletion`, `status`)\
+			 VALUES (%d, %d, %d, %d, %f , %d)" % (benchmarkid, instanceid, inputid, userid, timetocompletion, status)
+		print sql
+		try:
+	   		cursor.execute(sql)
+		   	db.commit()
+		except:
+			db.rollback()
+			db.close()
+	except StandardError, err:
+                print err
+                terminateCluster()
+                sys.exit()
 
 #stop instance using starcluster, waiting for completion
 def terminateCluster():
 	print "\nHawki>>> Terminating cluster ..."
 	try:
+		pass
 		process = subprocess.Popen("starcluster terminate -c "+clustername, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 		output,stderr = process.communicate()
 		status = process.poll()
-		print output
+		#print output
 
 	except StandardError, err:
 	        print err
 	        sys.exit()##ERROR msg
-
 
 
 #Start
@@ -202,13 +220,12 @@ runscript="submit.pl"
 username="sgeadmin"
 (clustername, imageid, instancetype, size, benchmark, userid, results, archive, inputdata) = parseOptions()
 clusterparams=validate()
-#startCluster()
-#transferFiles()
-#runBenchmark()
-#results = getResults() #readtime computation time writetime memoryused cpuused
-results="1.2 12.32 32.5 34.3 21.22"
+startCluster()
+transferFiles()
+runBenchmark()
+getResults() #readtime computation time writetime memoryused cpuused
 if(archive):
-	saveResults(results, userid)
+	saveResults()
 terminateCluster()
 
 #End

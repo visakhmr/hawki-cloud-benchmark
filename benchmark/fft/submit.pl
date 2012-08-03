@@ -1,11 +1,17 @@
 #!/usr/bin/perl -w
 
 $executable="benchmark";
+$commandline=$ARGV[1];
 $numproc=$ARGV[0];
 
+system("sed '/#INPUT=/ i INPUT=\`echo $commandline\`' benchmark.sge > benchmark.temp");
+system("mv benchmark.temp benchmark.sge");
+sleep (2);
 #Compile the source
 system("make");
 
+	#update input datafile name
+	
         # submit job
         $cmd = "qsub -cwd -pe orte $numproc $executable.sge";
         print $cmd."\n";
@@ -36,5 +42,3 @@ system("make");
                 sleep(2);
         }
 
-        print "Job ID: $jobId completed $numproc processes\n";
-        my $file = "image.sge.o$jobId";

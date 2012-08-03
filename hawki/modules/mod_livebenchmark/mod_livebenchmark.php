@@ -12,8 +12,9 @@ $benchmarkid = $_POST['benchmarkid'];
 $instanceid = $_POST['instanceid'];
 $instancecount = $_POST['instancecount'];
 
-
 $database =& JFactory::getDBO();
+$user =& JFactory::getUser();
+$userid = $user->id;
 //Select all published benchmarks
 $benchmarklist="SELECT `benchmarkid`, `benchmarkname`, `sourcepath`,`resultpath`,`description` from cx_benchmarks where state=1";
 $database->setQuery ($benchmarklist);
@@ -49,7 +50,7 @@ else
 }
 
 
-//Select all published benchmarks
+//Select all published instances 
 $instancelist="SELECT `instanceid`, `instancename`, `description`, `vendor` from cx_instances where state=1";
 $database->setQuery ($instancelist);
 $database->query();
@@ -143,7 +144,7 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
         	                 }
         	                 ?>
         	        </select>
-		<input type=submit value="Run Benchmark"/>
+		<input type=submit value="Run Benchmark" />
 		</form>
 		</div>
 	<?php
@@ -197,10 +198,11 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
 
 
 		//RUN using sourcepath, resultpath, inputstring
-		#echo $benchmark['sourcepath'].$benchmark['resultpath'].$input['inputstring'].$instance['instancename'];
+		echo $benchmark['sourcepath'].$benchmark['resultpath'].$input['inputstring'].$instance['instancename'];
 		echo "<pre>";
-		$cmd = "python /home/ubuntu/Hawk-i/environment/manager.py -t ".$instance['instancename']." -b /home/ubuntu/Hawk-i/benchmark/".$benchmark['sourcepath']." -r /home/ubuntu/Hawk-i/environment/".$benchmark['resultpath']." -s $instancecount";
-		#echo $cmd;
+		#TODO get userid
+		$cmd = "python /home/ubuntu/Hawk-i/environment/manager.py -a 1 -u $userid -t ".$instance['instancename']." -b /home/ubuntu/Hawk-i/benchmark/".$benchmark['sourcepath']." -s $instancecount -d ".$input['inputstring'];
+		echo $cmd;
 		if(system($cmd))
 		{
 			#echo $output;
