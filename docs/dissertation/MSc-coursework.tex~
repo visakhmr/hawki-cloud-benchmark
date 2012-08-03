@@ -96,7 +96,7 @@
 Scientific computing unravel the mysteries of science by constructing mathematical models and numerical algorithms. This required massive computational power and High-Performance Computing (HPC) solutions like cluster and grid have been the answer to these needs for a long time. These HPC solutions are hard and expensive to setup, maintain and use. \emph{Cloud computing} is a model of delivering the existing compute infrastructure where computation and storage can be dynamically provisioned on a pay as you go model. Using a vendor cloud service like Amazon Web Service (AWS) can significantly reduce the effort to access these on-demand high performance resources.
 
 In this work we create a platform to study how useful Amazon EC2 cloud computing can be for scientific applications. 
-We classify the applications based on the concept of computational \emph{motif}\cite{asanovic2008parallel}  
+%We classify the applications based on the concept of computational \emph{motif}\cite{asanovic2008parallel}  
 \end{abstract}
 
 \pagenumbering{roman}

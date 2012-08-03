@@ -1,0 +1,11 @@
+\begin{thebibliography}{1}
+
+\bibitem{asanovic2008parallel}
+K.~Asanovic, R.~Bodik, J.~Demmel, T.~Keaveny, K.~Keutzer, J.D. Kubiatowicz,
+  E.A. Lee, N.~Morgan, G.~Necula, D.A. Patterson, et~al.
+\newblock The parallel computing laboratory at uc berkeley: A research agenda
+  based on the berkeley view.
+\newblock {\em EECS Department, University of California, Berkeley, Tech. Rep},
+  2008.
+
+\end{thebibliography}

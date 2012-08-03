@@ -18,7 +18,7 @@
 \contentsline {section}{\numberline {2.2}Amazon Web Service}{3}
 \contentsline {subsection}{\numberline {2.2.1}Amazon Machine Instance}{3}
 \contentsline {subsection}{\numberline {2.2.2}Types of Instances}{3}
-\contentsline {subsection}{\numberline {2.2.3}EC2}{3}
+\contentsline {subsection}{\numberline {2.2.3}Amazon EC2}{3}
 \contentsline {subsubsection}{EC2 cluster compute}{3}
 \contentsline {section}{\numberline {2.3}HPC in the cloud}{3}
 \contentsline {subsection}{\numberline {2.3.1}Advantages}{4}
@@ -49,3 +49,5 @@
 \contentsline {subsection}{\numberline {A.0.3}Using Sun Grid Engine}{9}
 \contentsline {subsection}{\numberline {A.0.4}Creating Dashboard}{9}
 \contentsline {chapter}{\numberline {B}Benchmarking programs}{10}
+\contentsline {subsection}{\numberline {B.0.5}Spectral Methods}{10}
+\contentsline {subsection}{\numberline {B.0.6}N-body}{10}
