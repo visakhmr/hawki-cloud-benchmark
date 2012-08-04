@@ -71,7 +71,7 @@
 \pagenumbering{roman}
 
 \title{Hawk-i HPC CLoud Benchmark Tool}
-\author{Author's Name}
+\author{Visakh Muraleedharan}
 \date{\today}
 
 \makeEPCCtitle
@@ -93,7 +93,10 @@
 \newpage
 
 \begin{abstract}
-This is the bit where you summarise what is in your thesis.
+Scientific computing unravel the mysteries of science by constructing mathematical models and numerical algorithms. This required massive computational power and High-Performance Computing (HPC) solutions like cluster and grid have been the answer to these needs for a long time. These HPC solutions are hard and expensive to setup, maintain and use. \emph{Cloud computing} is a model of delivering the existing compute infrastructure where computation and storage can be dynamically provisioned on a pay as you go model. Using a vendor cloud service like Amazon Web Service (AWS) can significantly reduce the effort to access these on-demand high performance resources.
+
+In this work we create a platform to study how useful Amazon EC2 cloud computing can be for scientific applications. 
+We classify the applications based on the concept of computational \emph{motif}\cite{asanovic2008parallel}  
 \end{abstract}
 
 \pagenumbering{roman}
@@ -113,8 +116,10 @@ This is the bit where you summarise what is in your thesis.
 
 \pagenumbering{arabic}
 
+
+
 \chapter{Introduction}
-Stating the problem and 
+
 
 \chapter{Background}
 
@@ -141,7 +146,7 @@ easy, accesibility
 \section{Amazon Web Service}
 \subsection{Amazon Machine Instance}
 \subsection{Types of Instances}
-\subsection{EC2}
+\subsection{Amazon EC2}
 different instances chart and limitations of microinstance.
 \subsubsection{EC2 cluster compute}
 
@@ -157,12 +162,44 @@ Benifits
 Explain the 13 dwarfs and under the two sections explain N-body and FFT
 
 \subsection{N-Body Methods}
-MD, About the dwarf and application types
-optimisation, n^2 and nlogn
+MD, About the dwarf and application types optimisation, n2 and nlogn
 Communication pattern!!!
+
+
+
+
 \subsection{Spectral Methods}
-FFT, About the dwarf and application types
+In scientific computing, a class of techniques used to numerically solve differential equations involving the use of Fast Fouries Transform are called spectral methods
+
+Fourier transform
+Jean Baptiste Joseph Fourier (1768-1830) first employed what we now call Fourier transforms whilst working on the theory of heat 
+Linear transform which takes temporal or spatial information and converts into information which lies in the frequency domain
+Who would use Fourier Transforms? 
+• Physics 
+– Cosmology (P3M N-body solvers) 
+– Fluid mechanics 
+– Quantum physics 
+– Signal and image processing 
+– Antenna studies 
+– Optics 
+
+• Numerical analysis 
+– Linear systems analysis 
+– Boundary value problems 
+– Large integer multiplication (Prime finding) 
+
+• Statistics 
+– Random process modelling 
+– Probability theory
+
+{\underline Discrete Fourier Transform}
+The discrete Fourier transform of N complex points fk is defined as 
+
+
 Communication pattern!!!
+
+
+
 
 \chapter{Live Benchmark Tool Setup}
 \section{System Design}
@@ -185,7 +222,7 @@ Describe in detail
 \chapter{Results and Analysis}
 \section{Serial}
 for each instance type
-execution time, increasing problem size
+time to result, execution time, increasing problem size
 N-body and FFT
 
 \section{Parallel program}
@@ -206,17 +243,12 @@ History of execution, snapshot from dashboard
 \subsection{Using Sun Grid Engine}
 \subsection{Creating Dashboard}
 \chapter{Benchmarking  programs}
+\subsection{Spectral Methods}
+\subsection{N-body}
 
+\bibliographystyle{plain}
+\bibliography{dissertation}
 
-\begin{thebibliography}{100}
-
-\bibitem{ref:lam} L.Lamport. {\em 1986 Latex User's Guide
-and Reference Manual.} Addison Wesley. pp242.
-
-\bibitem{ref:bloggs} F.Bloggs. {\em 1993 Latex Users do it
-in Environments} Int. Journal of Silly Findings. pp 23-29.
-
-\end{thebibliography}
 
 
 \end{document}
