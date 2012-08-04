@@ -118,87 +118,108 @@ We classify the applications based on the concept of computational \emph{motif}\
 
 
 
-\chapter{Introduction}
+\section{Introduction}  
+In this dissertation, we are trying to prove that a live micro benchmark tool can be useful to cloud users to estimate 
+the time and cost of execution before putting significant initial efforts and skills to port the applications to the cloud infrastructure. 
+We also study the possibilities of classifying micro benchmarks based on 13 emph{motifs}\cite{} or patterns.  
+Our experiment uses two of these patterns, spectral methods and N-body simulation, to test the concept of live benchmark tool.   
+
+\section{Cloud computing}  
+In 1960 John McCarthy predicted that "computation may someday be organised as a public utility" \cite {dikaiakos2009cloud}. 
+Availability of high capacity networks and low cost hardware as well as the adoption of hardware virtualisation technology 
+made this prediction come true. These technologies and delivery models called "cloud computing" enabled a large community of 
+end-users to obtain computing and storage capacity on-demand.  
+There are several aspects in cloud computing which makes it attractive to users. The most importan one is the illusion of 
+infinite computing resources on demand which reduces the user's effort to plan ahead for resource provisioning. 
+Another feature is that cloud computing allow users to start small in a test environment and grow bigger without any upfront 
+commitments to service providers. Finally, from a pricing point of view, provision to pay only for the computing, storage or network 
+resources that you use makes cloud a cost effective solution for users \cite {fox2009above}.  
+
+\subsection{HPC in the cloud}  
+Cloud computing started in context of web applications and enterprise systems that have completely different requirements 
+when compared to high performance computing applications like scientific computing. Traditionally these applications rely 
+on HPC centers with dedicated systems connected through high bandwidth interconnects and uses parallel file systems.   
+Cloud provides the ability to manage or modify the software environment and get on-demand access to virtual resources 
+which makes it attractive to HPC users. The cloud resources can be used to replace the existing systems or supplement them. 
+One good example is the cloud storage provided by
+    
+http://science.energy.gov/~/media/ascr/pdf/program-documents/docs/Magellan_Final_Report.pdf  
+
+Introduction Paragraph, comparison with Clusters  
+\subsection{Advantages}  
+\subsection{Limitation}  
+Network Limitations, Availability, Stability of performance  
+Benifits  
+
+\subsection{Cloud Computing Deployment models}  
+A cloud being a data center hardware and software can be deployed in several ways depending on several aspects like cost effectiveness, privacy and security. The four deployment models of cloud computing are:  
+
+\underline{ Public Cloud}  
+When the cloud is available to the general public in a pay as you go manner, it is called a public cloud. 
+Public cloud infrastructure is owned and maintained by vendors that can support very large infrastructure and hence they are also known as vendor clouds. 
+Amazon Web Services\cite{} which is studied in this project would fall in this category. 
+Some of the other major companies offering cloud services are Rackspace\cite{}, Microsoft\cite{} and Google\cite{}. 
+Typically, end-users registered for this service using a credit card and they are provided access to this cloud infrastructure via internet.  
+
+\underline{Private Cloud}  
+A cloud infrastructure operating for a single organisation is a private cloud. This can be managed by the organisation or by a third party. 
+Typically a private cloud is hosted within the organisation network but they can also be hosted externally. 
+To provide virtualisation to users cloud software stacks like OpenNebula, Eucalyptus and Openstack are used. 
+Private cloud provides most of the benefits of public clouds while avoiding the issues concerning security of data and performance of public clouds. 
+Even though the organisation have to setup and manage the infrastructure,  it can be less expensive than public clouds\cite{Magellan_Final_Report.pdf}.
+
+\underline{ Community Cloud}  
+When a private cloud infrastructure is deployed by two or more organisations having similar requirements, it becomes a community cloud. 
+The cost of operating the cloud is shared by the organisations in the community. 
+Cost need to directly translate to currency in a community cloud, it can be credits based or fixed usage based on the agreement between the organisations.  
+
+\underline{Hybrid Cloud}  
+To benefit from the advantages of multiple deployment models, the two or more cloud infrastructures can be bound together to form a hybrid cloud. It requires onsite resources accessible without internet that provides flexibility and remote server based infrastructure to provide scalability. Hybrid clouds can be very useful with the implementing concepts like cloud bursting where the software application running on an internal organisational cloud is dynamically ported to a public cloud to address the increase in resource demand. To enable portability of applications in hybrid model, the independent infrastructures should be technology compliant.  
 
 
-\chapter{Background}
-
-\section{Cloud Computing}
-In 1960 John McCarthy predicted that "computation may someday be organised as a public utility". Availability of high  capacity networks and low cost hardware as well as the adoption of hardware virtualisation technology made this prediction come true. This delivery model enabled a large community of end-users to obtain computing and storage capacity on-demand. 
-
-\subsection{Why Cloud Computing?}
-\subsubsection{Resource on-demand}
-easy, accesibility
-\subsubsection{Pay as you go}
-\subsubsection{Maintenance and Upgradation}
-\subsubsection{Eco-friendly}
-
-\subsection{Cloud Computing service models}
-\subsubsection{IaaS}
-\subsubsection{PaaS}
-\subsubsection{Saas}
-
-\subsection{Cloud Computing Deployment models}
-\subsubsection{Private Cloud}
-\subsubsection{Public Cloud}
-\subsubsection{Hybrid Cloud}
-\subsubsection{Community Cloud}
-
-\section{Amazon Web Service}
-\subsection{Amazon Machine Instance}
-\subsection{Types of Instances}
-\subsection{Amazon EC2}
-different instances chart and limitations of microinstance.
-\subsubsection{EC2 cluster compute}
-
-\section{HPC in the cloud}
-Introduction Paragraph, comparison with Clusters
-\subsection{Advantages}
-\subsection{Limitation}
-Network Limitations, Availability, Stability of performance
-Benifits
-\subsection{Amazon Cluster compute}
-
-\section{Parallel Applications and 13 Dwarfs}
-Explain the 13 dwarfs and under the two sections explain N-body and FFT
-
-\subsection{N-Body Methods}
-MD, About the dwarf and application types optimisation, n2 and nlogn
-Communication pattern!!!
+\subsection{Cloud computing service models}  
+Cloud computing   
+\subsubsection{IaaS}  
+\subsubsection{PaaS}  
+\subsubsection{Saas}  
 
 
-
-
-\subsection{Spectral Methods}
-In scientific computing, a class of techniques used to numerically solve differential equations involving the use of Fast Fouries Transform are called spectral methods
-
-Fourier transform
-Jean Baptiste Joseph Fourier (1768-1830) first employed what we now call Fourier transforms whilst working on the theory of heat 
-Linear transform which takes temporal or spatial information and converts into information which lies in the frequency domain
-Who would use Fourier Transforms? 
-• Physics 
-– Cosmology (P3M N-body solvers) 
-– Fluid mechanics 
-– Quantum physics 
-– Signal and image processing 
-– Antenna studies 
-– Optics 
-
-• Numerical analysis 
-– Linear systems analysis 
-– Boundary value problems 
-– Large integer multiplication (Prime finding) 
-
-• Statistics 
-– Random process modelling 
-– Probability theory
-
-{\underline Discrete Fourier Transform}
-The discrete Fourier transform of N complex points fk is defined as 
-
-
-Communication pattern!!!
-
+\section{Amazon Web Service}  
+\subsection{Amazon Machine Instance}  
+\subsection{Types of Instances}  
+\subsection{Amazon EC2}  
+different instances chart and limitations of microinstance.  
+\subsubsection{EC2 cluster compute}  
+\subsection{Amazon Cluster compute}  
+\section{Parallel Applications and 13 Dwarfs}  
+Explain the 13 dwarfs and under the two sections explain N-body and FFT  
+\subsection{N-Body Methods}  
+MD, About the dwarf and application types optimisation, n2 and nlogn  
+Communication pattern!!!  
+\subsection{Spectral Methods}  
+In scientific computing, a class of techniques used to numerically solve differential equations involving the use of Fast Fouries Transform are called spectral methods  
+Fourier transform  
+Jean Baptiste Joseph Fourier (1768-1830) first employed what we now call Fourier transforms whilst working on the theory of heat   
+Linear transform which takes temporal or spatial information and converts into information which lies in the frequency domain  
+Who would use Fourier Transforms?   
+• Physics   
+– Cosmology (P3M N-body solvers)   
+– Fluid mechanics   
+– Quantum physics   
+– Signal and image processing   
+– Antenna studies   
+– Optics   
+• Numerical analysis   
+– Linear systems analysis   
+– Boundary value problems   
+– Large integer multiplication (Prime finding)   
+• Statistics   
+– Random process modelling   
+– Probability theory  
+{\underline Discrete Fourier Transform}  
+The discrete Fourier transform of N complex points fk is defined as   
+Communication pattern!!!  
+ 
 
 
 
