@@ -1,70 +1,58 @@
 <?php
 class JConfig {
-/* Site Settings */
-var $offline = '0';
-var $offline_message = 'This site is down for maintenance.<br /> Please check back again soon.';
-var $sitename = 'Hawk-i Cloud Benchmark';
-var $editor = 'tinymce';
-var $list_limit = '20';
-var $legacy = '0';
-/* Debug Settings */
-var $debug = '0';
-var $debug_lang = '0';
-/* Database Settings */
-var $dbtype = 'mysql';
-var $host = 'localhost';
-var $user = 'root';
-var $password = 'amma123';
-var $db = 'ubuntu_hawki';
-var $dbprefix = 'jos_';
-/* Server Settings */
-var $live_site = '';
-var $secret = '1rgwmpqlHipeZomA';
-var $gzip = '0';
-var $error_reporting = '-1';
-var $helpurl = 'http://help.joomla.org';
-var $xmlrpc_server = '0';
-var $ftp_host = '127.0.0.1';
-var $ftp_port = '21';
-var $ftp_user = '';
-var $ftp_pass = '';
-var $ftp_root = '';
-var $ftp_enable = '0';
-var $force_ssl = '0';
-/* Locale Settings */
-var $offset = '0';
-var $offset_user = '0';
-/* Mail Settings */
-var $mailer = 'mail';
-var $mailfrom = 'visakh.mr@gmail.com';
-var $fromname = 'Hawk-i Cloud Benchmark';
-var $sendmail = '/usr/sbin/sendmail';
-var $smtpauth = '0';
-var $smtpsecure = 'none';
-var $smtpport = '25';
-var $smtpuser = '';
-var $smtppass = '';
-var $smtphost = 'localhost';
-/* Cache Settings */
-var $caching = '0';
-var $cachetime = '15';
-var $cache_handler = 'file';
-/* Meta Settings */
-var $MetaDesc = 'Joomla! - the dynamic portal engine and content management system';
-var $MetaKeys = 'joomla, Joomla';
-var $MetaTitle = '1';
-var $MetaAuthor = '1';
-/* SEO Settings */
-var $sef           = '0';
-var $sef_rewrite   = '0';
-var $sef_suffix    = '0';
-/* Feed Settings */
-var $feed_limit   = 10;
-var $feed_email   = 'author';
-var $log_path = '/var/www/hawki/logs';
-var $tmp_path = '/var/www/hawki/tmp';
-/* Session Setting */
-var $lifetime = '15';
-var $session_handler = 'database';
+	var $offline = '0';
+	var $editor = 'tinymce';
+	var $list_limit = '20';
+	var $helpurl = 'http://help.joomla.org';
+	var $debug = '0';
+	var $debug_lang = '0';
+	var $sef = '0';
+	var $sef_rewrite = '0';
+	var $sef_suffix = '0';
+	var $feed_limit = '10';
+	var $feed_email = 'author';
+	var $secret = '1rgwmpqlHipeZomA';
+	var $gzip = '0';
+	var $error_reporting = '-1';
+	var $xmlrpc_server = '0';
+	var $log_path = '/var/www/hawki/logs';
+	var $tmp_path = '/var/www/hawki/tmp';
+	var $live_site = '';
+	var $force_ssl = '0';
+	var $offset = '0';
+	var $caching = '0';
+	var $cachetime = '15';
+	var $cache_handler = 'file';
+	var $memcache_settings = array();
+	var $ftp_enable = '0';
+	var $ftp_host = '127.0.0.1';
+	var $ftp_port = '21';
+	var $ftp_user = '';
+	var $ftp_pass = '';
+	var $ftp_root = '';
+	var $dbtype = 'mysql';
+	var $host = 'localhost';
+	var $user = 'root';
+	var $db = 'ubuntu_hawki';
+	var $dbprefix = 'jos_';
+	var $mailer = 'mail';
+	var $mailfrom = 'visakh.mr@gmail.com';
+	var $fromname = 'Hawk-i Cloud Benchmark';
+	var $sendmail = '/usr/sbin/sendmail';
+	var $smtpauth = '0';
+	var $smtpsecure = 'none';
+	var $smtpport = '25';
+	var $smtpuser = '';
+	var $smtppass = '';
+	var $smtphost = 'localhost';
+	var $MetaAuthor = '1';
+	var $MetaTitle = '1';
+	var $lifetime = '240';
+	var $session_handler = 'database';
+	var $password = 'pass123';
+	var $sitename = 'Hawk-i Cloud Benchmark';
+	var $MetaDesc = 'Joomla! - the dynamic portal engine and content management system';
+	var $MetaKeys = 'joomla, Joomla';
+	var $offline_message = 'This site is down for maintenance. Please check back again soon.';
 }
 ?>

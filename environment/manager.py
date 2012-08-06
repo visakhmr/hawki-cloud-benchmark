@@ -145,8 +145,9 @@ def saveResults():
 		benchmarkid=0
 		instanceid=0
 		inputid=0
-	
-		db = MySQLdb.connect("localhost","root","amma123","ubuntu_hawki" )
+		
+		#hard coded for prototype
+		db = MySQLdb.connect("localhost","root","pass123","ubuntu_hawki" )
 	        cursor = db.cursor()
 		benchmarks = benchmark.split('/')
 	
@@ -185,8 +186,8 @@ def saveResults():
 			inputid=0
 	
 		#Insert into results table
-		sql = "INSERT INTO cx_results (`benchmarkid` , `instanceid` , `inputid` , `userid` , `timetocompletion`, `status`)\
-			 VALUES (%d, %d, %d, %d, %f , %d)" % (benchmarkid, instanceid, inputid, userid, timetocompletion, status)
+		sql = "INSERT INTO cx_results (`benchmarkid` , `instanceid` , `inputid` , `userid` , `size`, `timetocompletion`, `status`)\
+			 VALUES (%d, %d, %d, %d, %d, %f, %d)" % (benchmarkid, instanceid, inputid, userid, size, timetocompletion, status)
 		print sql
 		try:
 	   		cursor.execute(sql)
