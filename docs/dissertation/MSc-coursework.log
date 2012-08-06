@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.6.26)  19 JUL 2012 01:44
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.6.26)  1 AUG 2012 00:28
 entering extended mode
  %&-line parsing enabled.
 **MSc-coursework.tex
@@ -127,7 +127,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 95.
  [1]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 101.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 104.
  (./MSc-coursework.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 3.
@@ -135,28 +135,28 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
-)
-\tf@toc=\write3
-\openout3 = `MSc-coursework.toc'.
-
 
 [1
 
-] (./MSc-coursework.lot)
+])
+\tf@toc=\write3
+\openout3 = `MSc-coursework.toc'.
+
+ [2] (./MSc-coursework.lot)
 \tf@lot=\write4
 \openout4 = `MSc-coursework.lot'.
 
- [2
+ [3
 
 ] (./MSc-coursework.lof)
 \tf@lof=\write5
 \openout5 = `MSc-coursework.lof'.
 
- [3
+ [4
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 110.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 113.
  [1]
 Chapter 1.
 [1
@@ -164,33 +164,10 @@ Chapter 1.
 ]
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 123.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 128.
 [2
 
-] [3]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.161 optimisation, n^
-                      2 and nlogn
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.163 \subsection
-                 {Spectral Methods}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (48.687pt too wide) in paragraph at lines 160--163
-\T1/ptm/m/n/12 MD, About the dwarf and ap-pli-ca-tion types op-ti-mi-sa-tion, n
-$[]\OML/cmm/m/it/12 andnlognCommunicationpattern\OT1/cmr/m/n/12 !!!$ 
- []
-
-[4]
+] [3] [4]
 Chapter 3.
 [5
 
@@ -208,28 +185,26 @@ Appendix A.
 
 ]
 Appendix B.
-[10
+(./MSc-coursework.bbl [10
 
-] [11
+]) [11
 
 ] (./MSc-coursework.aux) ) 
 Here is how much of TeX's memory you used:
- 1272 strings out of 495061
- 14797 string characters out of 1182621
- 73178 words of memory out of 3000000
- 4468 multiletter control sequences out of 15000+50000
+ 1274 strings out of 495061
+ 14840 string characters out of 1182621
+ 74175 words of memory out of 3000000
+ 4467 multiletter control sequences out of 15000+50000
  33567 words of font info for 45 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 27i,12n,37p,192b,206s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,12n,37p,706b,244s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc
-}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/typ
-e1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.
-pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on MSc-coursework.pdf (17 pages, 112195 bytes).
+}</usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-t
+exlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/u
+rw/times/utmri8a.pfb>
+Output written on MSc-coursework.pdf (18 pages, 89761 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
+ 77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

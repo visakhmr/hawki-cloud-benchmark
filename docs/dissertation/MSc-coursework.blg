@@ -1,0 +1,45 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: MSc-coursework.aux
+The style file: plain.bst
+Database file #1: dissertation.bib
+You've used 1 entry,
+            2118 wiz_defined-function locations,
+            502 strings with 4363 characters,
+and the built_in function-call counts, 538 in all, are:
+= -- 41
+> -- 58
+< -- 0
++ -- 24
+- -- 22
+* -- 50
+:= -- 108
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 13
+chr.to.int$ -- 0
+cite$ -- 1
+duplicate$ -- 10
+empty$ -- 18
+format.name$ -- 22
+if$ -- 94
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 1
+newline$ -- 8
+num.names$ -- 2
+pop$ -- 13
+preamble$ -- 1
+purify$ -- 12
+quote$ -- 0
+skip$ -- 8
+stack$ -- 0
+substring$ -- 6
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 2
+width$ -- 2
+write$ -- 12
