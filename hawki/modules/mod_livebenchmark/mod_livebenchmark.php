@@ -201,7 +201,7 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
 		echo $benchmark['sourcepath'].$benchmark['resultpath'].$input['inputstring'].$instance['instancename'];
 		echo "<pre>";
 		#TODO get userid
-		$cmd = "python /home/ubuntu/Hawk-i/environment/manager.py -a 1 -u $userid -t ".$instance['instancename']." -b /home/ubuntu/Hawk-i/benchmark/".$benchmark['sourcepath']." -s $instancecount -d ".$input['inputstring'];
+		$cmd = "python /home/ubuntu/Hawk-i/environment/manager.py -a 1 -u $userid -t ".$instance['instancename']." -b /home/ubuntu/Hawk-i/benchmark/".$benchmark['sourcepath']." -s $instancecount -d \"".$input['inputstring']."\"";
 		echo $cmd;
 		if(system($cmd))
 		{

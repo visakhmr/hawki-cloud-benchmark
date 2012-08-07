@@ -20,7 +20,7 @@ if ($_POST['file']=="")
 {
 	$allowedExts = array("tar");
 	$extension = end(explode(".", $_FILES["file"]["name"]));
-	if (($_FILES["file"]["type"] == "application/x-tar") && ($_FILES["file"]["size"] < 20000) && in_array($extension, $allowedExts))
+	if (($_FILES["file"]["type"] == "application/x-tar") && ($_FILES["file"]["size"] < 2000000) && in_array($extension, $allowedExts))
 	{
 		if ($_FILES["file"]["error"] > 0)
 		{
@@ -45,45 +45,35 @@ if ($_POST['file']=="")
 			$benchmarkname = basename($_FILES["file"]["name"], ".tar");
 			system("tar -xvf benchmark/$benchmarkname.tar -C benchmark/");
 			system("rm -f benchmark/$benchmarkname.tar");
+			$description=$_POST['description'];
 
 		//todo store name and description in database 
 
-			$benchmarklist="INSERT into cx_benchmarks `benchmarkname`, `sourcepath`,`resultpath`,`description` VALUES('','','','')";
+			$benchmarklist="INSERT into cx_benchmarks (`benchmarkname`, `sourcepath`,`resultpath`,`description`, `state`) VALUES('$benchmarkname','$benchmarkname','$benchmarkname"."_results','$description', 1)";
 			$database->setQuery ($benchmarklist);
-			$database->query();
 
-			if($database->getNumRows()==0) //no benchmarks
+			if(!$database->query()) //no benchmarks
 			{
-			        echo "No benchmarks added";
+			        echo "\nError in inserting benchmark details";
 			}
 			else
 			{
-        
+        			echo "\nInserted";
 			}
 
 	      	}
 	}
+	else
+	{
+		echo "<br>File too big</br>";
 }
-/*
-//Select all published benchmarks
-$benchmarklist="INSERT into cx_benchmarks `benchmarkname`, `sourcepath`,`resultpath`,`description` VALUES('','','','')";
-$database->setQuery ($benchmarklist);
-$database->query();
-
-if($database->getNumRows()==0) //no benchmarks
-{
-	echo "No benchmarks added";
-}
-else
-{
 	
 }
-*/
 ?>
 <div>
 	<form action="" method="post" enctype="multipart/form-data">
 	<label for="file">Benchmark source (.tar): </label>
-	<input type="file" name="file" id="file" /> <a href="">Template</a>
+	<input type="file" name="file" id="file" /> <a href="template.tar">Template</a>
 	<br />
 	<input type="submit" name="submit" value="Submit" />
 	<label for="description"> Description</label><textarea name="description"></textarea>

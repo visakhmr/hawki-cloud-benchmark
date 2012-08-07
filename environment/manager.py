@@ -126,9 +126,10 @@ def saveResults():
 		output = {}	#empty array to store results
 		outputfile = open(results+"/benchmark.sge.o1",'r')	#read file
 		x = outputfile.readline()
-		status=1
+		status=0
 		timetocompletion = 0.0
 		while (x):
+			print x+"<br>"
 			var = x.split(' ')
 			if (var[0]=='real'):
 				timetocompletion = float(var[-1])
@@ -227,6 +228,6 @@ runBenchmark()
 getResults() #readtime computation time writetime memoryused cpuused
 if(archive):
 	saveResults()
-terminateCluster()
+#terminateCluster()
 
 #End
