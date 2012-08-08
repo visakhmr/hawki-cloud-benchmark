@@ -1,15 +1,15 @@
-/*----------------------------------------------
-   Benchmark program goes in here. 
-   You can also have multiplefiles, change Makefile accordingly
-   Command line inputs have to be added in sge file
-------------------------------------------------*/
+/*******************************
+Sample benchmark program
+*******************************/
 
 #include <stdio.h>
-#include <time.h>
-#include <sys/time.h>
+//include any library or files
 
 int main(int argc, char **argv)
 {
-  printf ("\nHello Benchmark !!!\n");
+ 
+
+// IMPORTANT print success message 
+  printf("\nstatus sucess\n");
   return 0;
 }

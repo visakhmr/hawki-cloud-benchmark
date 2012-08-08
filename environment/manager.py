@@ -126,9 +126,10 @@ def saveResults():
 		output = {}	#empty array to store results
 		outputfile = open(results+"/benchmark.sge.o1",'r')	#read file
 		x = outputfile.readline()
-		status=1
+		status=0
 		timetocompletion = 0.0
 		while (x):
+			print x+"<br>"
 			var = x.split(' ')
 			if (var[0]=='real'):
 				timetocompletion = float(var[-1])
@@ -145,8 +146,9 @@ def saveResults():
 		benchmarkid=0
 		instanceid=0
 		inputid=0
-	
-		db = MySQLdb.connect("localhost","root","amma123","ubuntu_hawki" )
+		
+		#hard coded for prototype
+		db = MySQLdb.connect("localhost","root","pass123","ubuntu_hawki" )
 	        cursor = db.cursor()
 		benchmarks = benchmark.split('/')
 	
@@ -185,8 +187,8 @@ def saveResults():
 			inputid=0
 	
 		#Insert into results table
-		sql = "INSERT INTO cx_results (`benchmarkid` , `instanceid` , `inputid` , `userid` , `timetocompletion`, `status`)\
-			 VALUES (%d, %d, %d, %d, %f , %d)" % (benchmarkid, instanceid, inputid, userid, timetocompletion, status)
+		sql = "INSERT INTO cx_results (`benchmarkid` , `instanceid` , `inputid` , `userid` , `size`, `timetocompletion`, `status`)\
+			 VALUES (%d, %d, %d, %d, %d, %f, %d)" % (benchmarkid, instanceid, inputid, userid, size, timetocompletion, status)
 		print sql
 		try:
 	   		cursor.execute(sql)
@@ -226,6 +228,6 @@ runBenchmark()
 getResults() #readtime computation time writetime memoryused cpuused
 if(archive):
 	saveResults()
-terminateCluster()
+#terminateCluster()
 
 #End
