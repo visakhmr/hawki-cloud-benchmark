@@ -285,34 +285,74 @@ The discrete Fourier transform of N complex points fk is defined as
 Communication pattern!!!  
  
 
-\chapter{Live Benchmark Tool}
-\section{System Design}
-\subsection{Architecture}
-\subsection{Sequence diagram}
-\subsection{Database Design}
 
-\section{Initial findings and design decisions}
-\section{Instance types Used}
-Refer to graph in Background
-Why these types?
-\section{Sun Grid Engine Cluster}
-Why sungrid Engine
-\section{SGE Clustering in Amazon cloud}
-  benchmark to show how cluster instances are faster than normal high cpu instances
-\section{Web interface}
+Hawk-i Live Benchmark Tool Setup
+
+Design Decisions and Assumptions
+Instances used
+AWS provides several EC2 Instances [figure: Refer to graph in Background]. Features of these instances were carefully studied and the following instances were selected to be included in Hawk-i tool. 
+Standard instances: m1.small, m1.medium, m1.large, m1.xlarge
+High memory instances: m2.xlarge, m2.2xlarge, m2.4xlarge
+High CPU instances: c1.medium, c1.xlarge
+Cluster Compute instances: cc1.4xlarge, cc2.8xlarge (Requires different AMI)
+Excluded: 
+t1.micro (What was seen observed during initial experiments)
+cg1.4xlarge (Added complexity)
+AMI used
+The AMI used for this experiment is an Ubuntu image with pre-configured sun grid engine and OpenMPI.  For this project we use two custom AMIs [Appendix], Ubuntu instance for clustering of normal instances and CentOS instance for Cluster compute.
+Sun Grid Engine
+We selected Sun Grid Engine (SGE) as the batch queuing system due to my previous experience in building bare metal heterogeneous cluster using sun grid engine and familiarity of using Ness[]. In virtual environment the installation and configuration was no different from the actual cluster building.
+Starcluster
+Starcluster is a MIT cluster management tool [] to manage the SGE cluster. Hawki use Starcluster command line tools to    
+System interface
+In the initial design there are two interfaces to the Hawki system, a command line interface to add and schedule benchmarks and a web interface to view the results. Scheduled execution cost of the system was too high. Hence we thought of an alternative on-demand benchmark using the web interface. We still retain the scheduled benchmark on a small instance to verify the stability of results provided by AWS.
+Due to convenience of scripting and wide library availability, Python was decided to be used for creating the command line interface. Python being pre-installed in almost all major Linux distribution made this decision easier.
+The web interface is developed using PHP, MySQL and Apache. These applications are free and opensource under GPL License.  Web server was configured and the application was deployed in Manager Instance. Joomla Content Management system is used for User Management and Navigation. 
+Benchmarks used
+To test the functionality of this tool, the initial plan was to create micro benchmarks mimicking the execution behaviour of existing real life HPC applications. On further research we found a study by University of Berkley [] to classify of benchmarks based on the computation pattern. This approach was taken for selecting benchmarks to be added in Hawki. The option to add new benchmarks was decided to be provided for future use.
+
+System Design
+In this Section, we discuss the design of Hawki system. 
+Architecture
+Entire Hawki system was divided into three different subsystems named Manager Environment, Benchmarks, and Web Interface.
+Manager Environment
+Python scripting to handle command execution request from the web interface. It accepts command line input from the manager instance. 
+Benchmark
+FFT and MD code was used as sample benchmark to test the system. Ping pong is also used to test the communication performance of the cluster.
+Web Interface
+Web interface provides Hawki tool access for normal users, managers and administrator. Normal users will view the stability of execution of different benchmarks over a large period of time. Managers have the option to select and run benchmarks and view the history of all their execution as reports. Administrator has full privilege in the system and they add, edit and remove benchmarks, input types and instances.
+ 
+Sequence diagram
+The data transfer between different subsystems is shown in figure []
+ 
+
+Database Design
+All results from executing benchmark is stored in a database and the users have the option to view their benchmarks at any point of time.
+
+
+
+ 
+ 
+Implementation
+In this section we discuss the implementation strategies used to develop and test Hawki tool.
+
+Manager environment
+Hawki provides command line interface from the manager instance. The administrator can test the programs and debug Hawki using this interface. This is a python manager script that manages different benchmarks. 
+
+Benchmarks
+FFT and MD are the benchmarks. Ping pong was used to test the message passing capacity.
+Results obtained 
+
+Web interface
+
+
+Web interface
 Describe in detail
-\subsection{Admin panel}
-\subsection{User Dashboard}
+Admin panel
+subsectionUser Dashboard
 
-\section{Implementation and a}
-\subsection{Using Starcluster}
-\subsection{Cluster Management package}
-\subsection{Using Sun Grid Engine}
-\subsection{Creating Dashboard}
 
-\section{Benchmarking  programs}
-\subsection{Spectral Methods}
-\subsection{N-body}
+
 
 \chapter{Results and Analysis}
 \section{Serial}
