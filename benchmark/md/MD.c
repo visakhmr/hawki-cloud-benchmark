@@ -8,10 +8,6 @@
  * If 2 particles approach closer than Size we flip the direction of the
  * interaction force to approximate a collision.
  *
- *
- * This program was developed as part of a code optimisation course
- * and is therefore deliberately inefficient.
- *
  */
 #include <stdio.h>
 #include <math.h>
@@ -82,10 +78,7 @@ double dr, dx[3];
             particle[i].vel[j] = particle[i].vel[j] + dt * (particle[i].f[j]/particle[i].mass);
           }
         }
-
-
       }
-
 }
 
 

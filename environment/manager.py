@@ -60,7 +60,7 @@ def startCluster():
 		 if 'The master node is' in line:
 		   line=line.split(' ')
  		   hostname =  line[-1]
-		   #print "Front node :"+hostname
+		   print "Front node :"+hostname
 	except StandardError, err:
         	print err
 		terminateCluster()
@@ -80,7 +80,7 @@ def transferFiles():
 		output,stderr = process.communicate()
         	status = process.poll()
 		#get frontend nodename
-		#print output
+		print output
 	except StandardError, err: #clean up
         	print err
 		terminateCluster()
@@ -91,11 +91,11 @@ def transferFiles():
 def runBenchmark():
 	print "\nHawki>>> Running Benchmark ..."
 	try:
-		process = subprocess.Popen("starcluster sshmaster --user "+username + " " + clustername +
-			" ./" + runscript + " "+str(size)+" "+inputdata, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+		time.sleep(60)
+		process = subprocess.Popen("starcluster sshmaster --user "+username + " " + clustername + " ./" + runscript + " "+str(size)+" \\\" "+inputdata+" \\\"", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 		output,stderr = process.communicate()
 		status = process.poll()
-		#print output
+		print output
 	except StandardError, err:
 	        print err
 		terminateCluster()
@@ -111,7 +111,7 @@ def getResults():
 		output,stderr = process.communicate()
 	        status = process.poll()
 		#get frontend nodename
-		#print output
+		print output
 
 	except StandardError, err:
 	        print err
@@ -222,12 +222,13 @@ runscript="submit.pl"
 username="sgeadmin"
 (clustername, imageid, instancetype, size, benchmark, userid, results, archive, inputdata) = parseOptions()
 clusterparams=validate()
+print "starcluster sshmaster --user "+username + " " + clustername + " ./" + runscript + " "+str(size)+" \\\" "+inputdata+" \\\""
 startCluster()
 transferFiles()
 runBenchmark()
 getResults() #readtime computation time writetime memoryused cpuused
 if(archive):
 	saveResults()
-#terminateCluster()
+terminateCluster()
 
 #End

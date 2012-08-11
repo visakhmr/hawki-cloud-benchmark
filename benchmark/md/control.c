@@ -28,9 +28,6 @@ int main(int argc, char *argv){
   char hostname[100]; 
   double dt=0.02;  /*  timestep value */
   int Nstep=1;
-  gethostname(hostname,100);
-/*  number of timesteps to use. */
-  
 /* read the initial data from a file */
   collisions=0;
   in = fopen("input.dat","r");

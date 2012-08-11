@@ -16,7 +16,7 @@ $database =& JFactory::getDBO();
 $user =& JFactory::getUser();
 $userid = $user->id;
 //Select all published benchmarks
-$benchmarklist="SELECT `benchmarkid`, `benchmarkname`, `sourcepath`,`resultpath`,`description` from cx_benchmarks where state=1";
+$benchmarklist="SELECT `benchmarkid`, `benchmarkname`, `sourcepath`,`resultpath`,`description` from cx_benchmarks where state=1 ORDER BY benchmarkname ASC";
 $database->setQuery ($benchmarklist);
 $database->query();
 
@@ -51,7 +51,7 @@ else
 
 
 //Select all published instances 
-$instancelist="SELECT `instanceid`, `instancename`, `description`, `vendor` from cx_instances where state=1";
+$instancelist="SELECT `instanceid`, `instancename`, `description`, `vendor` from cx_instances where state=1 ORDER BY instancename ASC";
 $database->setQuery ($instancelist);
 $database->query();
 
@@ -109,7 +109,7 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
 	//Read input id from user
 	$database =& JFactory::getDBO();
 	//Select all published benchmarks
-	$inputlist="SELECT `inputid`, `benchmarkid`, `inputstring`,`state` from cx_input where benchmarkid=$benchmarkid and state=1";
+	$inputlist="SELECT `inputid`, `benchmarkid`, `inputstring`,`state` from cx_input where benchmarkid=$benchmarkid and state=1 ORDER BY inputstring ASC";
 	$database->setQuery ($inputlist);
 	$database->query();
 	
