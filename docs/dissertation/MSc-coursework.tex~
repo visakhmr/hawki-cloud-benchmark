@@ -93,7 +93,12 @@
 \newpage
 
 \begin{abstract}
-Scientific computing unravel the mysteries of science by constructing mathematical models and numerical algorithms. This required massive computational power and High-Performance Computing (HPC) solutions like cluster and grid have been the answer to these needs for a long time. These HPC solutions are hard and expensive to setup, maintain and use. \emph{Cloud computing} is a model of delivering the existing compute infrastructure where computation and storage can be dynamically provisioned on a pay as you go model. Using a vendor cloud service like Amazon Web Service (AWS) can significantly reduce the effort to access these on-demand high performance resources.
+Scientific computing unravel the mysteries of science by constructing mathematical models and numerical algorithms. 
+This required massive computational power and High-Performance Computing (HPC) solutions like cluster and grid have been the answer for massive computing to these needs for a long time.
+These HPC solutions are hard and expensive to setup, maintain and use. 
+\emph{Cloud computing} is a model of delivering the compute infrastructure in which 
+computation and storage can be dynamically provisioned on a pay as you go model. 
+Using a vendor cloud service like Amazon Web Service (AWS) can significantly reduce the effort to access these on-demand high performance resources.
 
 In this work we create a platform to study how useful Amazon EC2 cloud computing can be for scientific applications. 
 We classify the applications based on the concept of computational \emph{motif}\cite{asanovic2008parallel}  
@@ -118,95 +123,175 @@ We classify the applications based on the concept of computational \emph{motif}\
 
 
 
-\chapter{Introduction}
-
+\section{Introduction}  
+In this dissertation, we are trying to prove that a live micro benchmark tool can be useful to cloud users to estimate 
+the time and cost of execution before putting significant initial efforts and skills to port the applications to the cloud infrastructure. 
+We also study the possibilities of classifying micro benchmarks based on 13 emph{motifs}\cite{} or patterns.  
+Our experiment uses two of these patterns, spectral methods and N-body simulation, to test the concept of live benchmark tool.   
 
 \chapter{Background}
 
-\section{Cloud Computing}
-Delivery of computing and storage 
-\subsection{Why Cloud Computing?}
-\subsubsection{Resource on-demand}
-easy, accesibility
-\subsubsection{Pay as you go}
-\subsubsection{Maintenance and Upgradation}
-\subsubsection{Eco-friendly}
+\section{Cloud computing}  %one page about cloud computing
+In 1960 John McCarthy predicted that "computation may someday be organised as a public utility" \cite {dikaiakos2009cloud}. 
+Availability of high capacity networks and low cost hardware as well as the adoption of hardware virtualisation\cite{} technology 
+made this prediction come true. These technologies and delivery models called "cloud computing" enabled a large community of 
+end-users to obtain computing and storage capacity on-demand.  
 
-\subsection{Cloud Computing service models}
-\subsubsection{IaaS}
-\subsubsection{PaaS}
-\subsubsection{Saas}
+There are several aspects in cloud computing which makes it attractive to users. The most importan one is the illusion of 
+infinite computing resources on demand which reduces the user's effort to plan ahead for resource provisioning. 
+Another feature is that cloud computing allow users to start small in a test environment and grow bigger without any upfront 
+commitments to service providers. Finally, from a pricing point of view, provision to pay only for the computing, storage or network 
+resources that you use makes cloud a cost effective solution for users \cite {armbrust2010view}.  
 
-\subsection{Cloud Computing Deployment models}
-\subsubsection{Private Cloud}
-\subsubsection{Public Cloud}
-\subsubsection{Hybrid Cloud}
-\subsubsection{Community Cloud}
+\subsection{HPC in cloud}  %one page about hpc in cloud with examples like cern
+Cloud computing started in context of web applications and enterprise systems that have completely different requirements 
+when compared to high performance computing (HPC) applications like scientific computing. Traditionally these applications rely 
+on HPC centers with dedicated systems connected through high bandwidth interconnects and uses parallel file systems.   
+Cloud provides the ability to manage or modify the software environment and get on-demand access to virtual resources which makes it attractive to HPC users. 
+The cloud resources can be used to replace the existing systems or supplement them. 
+One good example is the cloud storage provided by ........
+    
+%http://science.energy.gov/~/media/ascr/pdf/program-documents/docs/Magellan_Final_Report.pdf  
+Introduction Paragraph, comparison with Clusters 
+Network Limitations, Availability, Stability of performance  
+Benifits  
 
-\section{Amazon Web Service}
+\subsection{Cloud Computing Deployment models}  
+A cloud being a data center hardware and software can be deployed in several ways depending on several aspects like cost effectiveness, privacy and security.
+Four deployment models of cloud computing are: 
+
+\underline{ Public Cloud}  
+When the cloud is available to the general public in a pay as you go manner, it is called a public cloud. 
+Public cloud infrastructure is owned and maintained by vendors that can support very large infrastructure and hence they are also known as vendor clouds. 
+Amazon Web Services\cite{} which is studied in this project would fall in this category. 
+Some of the other major companies offering cloud services are Rackspace\cite{}, Microsoft\cite{} and Google\cite{}. 
+Typically, end-users registered for this service using a credit card and they are provided access to this cloud infrastructure via internet.  
+
+\underline{Private Cloud}  
+A cloud infrastructure operating for a single organisation is a private cloud. This can be managed by the organisation or by a third party. 
+Typically a private cloud is hosted within the organisation network but they can also be hosted externally. 
+To provide virtualisation to users cloud software stacks like OpenNebula\cite{}, Eucalyptus\cite{} and Openstack\cite{} are used. 
+Private cloud provides most of the benefits of public clouds while avoiding the issues concerning security of data and performance of public clouds. 
+Even though the organisation have to setup and manage the infrastructure,  it can be less expensive than public clouds\cite{Magellan_Final_Report.pdf}.
+
+\underline{Community Cloud}
+When a private cloud infrastructure is deployed by two or more organisations having similar requirements, it becomes a community cloud. 
+The cost of operating the cloud is shared by the organisations in the community. 
+In community cloud, cost need not directly translate to currency in a community cloud.
+Usage can be credits based or fixed usage based on the agreement between the organisations.
+
+\underline{Hybrid Cloud}
+To benefit from the advantages of multiple deployment models, the two or more cloud infrastructures can be bound together to form a hybrid cloud.
+It requires onsite resources accessible without internet that provides flexibility and remote server based infrastructure to provide scalability. 
+Hybrid clouds can be very useful with the implementing concepts like cloud bursting\cite{}. 
+The software application running on an internal organisational cloud is dynamically ported to a public cloud to address the increase in resource demand. To enable portability of applications in hybrid model, the independent infrastructures should be technology compliant.  
+
+
+\subsection{Cloud computing service models}  
+
+Cloud computing services are normally categorized as Software as a Service (SaaS), Platform as a Service (PaaS) and Infrastructure as a Service (IaaS).
+high performance computing can significantly utilise each of these models.
+The difference between the service models is based on the abstraction level at which the service is provided to the
+end user. The end user have the freedom to customise the applications and environment above the abstracted level. 
+For example, in IaaS, a virtual hardware is provided to the end user and the user then decides on the operating system and applications to be installed on the system. 
+We will discuss each of these service models with existing examples in the public clouds to understand their features.
+
+\subsubsection{Infrastructure as a Service}
+
+In Infrastructure as a Service service model, cloud provides virtual equipments including hardware, storage and networking components. 
+The service provider is responsible for creating, running, and maintaining it. 
+In public cloud, the client typically pays on a per-use basis for use of the equipment.
+
+Today, the most widely used IaaS provider is Amazon Web Services. Amazon provides different types if Infrastructures for different pricing. 
+Amazon Simple Storage Service (S3) and Elastic Block Storage (EBS) are methods of data storage. 
+Being a key-based storage which is highly scalable, Amazon S3 is capable of handling data integrity and fault tolerance. 
+Amazon EBS storage provides virtual block storage devices that can easily be associated with elastic compute instances to persistantly store data. 
+S3 charges for the amount of data transferred to and from the device and the number of metadata operations performed. 
+Both EBS and S3 charges for data stored per month, but there is no charge for data transferred within an Availability Zone\cite{}.
+Data transferred between EC2 instances and S3 located in different Availability Zones in the same region will be charged Regional Data Transfer and 
+data transferred between devices in different regions will be charged on both sides of transfer as Internet Data Transfer.
+
+Eucalyptus, OpenNebula and OpenStack are open source software packages that can be used to create a private cloud Infrastructure service.
+Most of the services provided by AWS including machine image management, persistent storage etc are provided by these packages. 
+They often provide interfaces similar to vendor clouds like Amazon EC2 which allow the use of same set of tools and methods. 
+
+\subsubsection{Platform as a Service}
+
+Platform as a Service (PaaS) helps in building and delivering applications by providing a computing platform. 
+It includes facilities for different phases of a project lifecycle including design development, deployment and testing.
+Windows Azure is a good example of a popular PaaS service. 
+Azure provides an environment for development, hosting, and management of applications.
+Applications hosted in Azure platform are provided compute resources and storage on-demand.
+Azure has two virtual machine instance types: the webrole instance and the worker role instance. 
+To store data and access it from these virtual machines Azure provides Blob storage Service.
+
+Even though Azure platform is designed for web applications, its use for HPC applications is being explored \cite{li2010escience}.
+
+\subsubsection{Software as a Service}
+
+Software as a Service (SaaS) provides end users with direct access to an application with a specific function. 
+Applications and related data are centrally hosted in the cloud and accessed via a web browser.
+
+Examples in the public clouds include services like Google drive\cite{} and Microsoft Skydrive\cite{}.
+Documents, images, spreadsheets and presentations can be created and imported using a web interface. 
+Both of these services provide desktop application plugins to synchronise data created using the software suits like Microsoft Office. 
+This gives users the convenience of accessing their application data from any workstation or mobile device.
+
+\section{Amazon Web Services}  
+In 2006, Amazon.com\cite{} started offering a collection of cloud computing services over the internet. This collection of web services is called Amazon Web Services. Today, Amazon Web Services provides an IT infrastructure platform for business in the cloud with data center locations in the U.S., Europe, Brazil, South America, Singapore, and Japan.
+
+\subsection{Amazon EC2}  
+Amazon Elastic Compute Cloud (Amazon EC2) is an IaaS that provides resizable or elastic compute capacity in the cloud. It is designed to provide the freedom of choosing development environment and software stack to the developers. 
+Amazon EC2’s web service interface allows users to launch and configure capacity with minimal effort. The time required to launch a new instance is less than a few minutes allowing users to quickly increase or decrease capacity, as their computing requirements change.
+
 \subsection{Amazon Machine Instance}
+An Amazon Machine Image (AMI) is a pre-configured template operating system which is used to launch an EC2 instance. Users can create their custom AMI usind the developer tools. 
+A machine image is compressed and split into a set of 10MB chunks and stored in Amazon S3 storage. Even though each AMI has a pointer to a default kernel, user may choose a kernel from a list of compatible kernels maintained by Amazon and its partners like Redhat and Canonical. 
+
 \subsection{Types of Instances}
-\subsection{Amazon EC2}
-different instances chart and limitations of microinstance.
-\subsubsection{EC2 cluster compute}
+  
+image{}
 
-\section{HPC in the cloud}
-Introduction Paragraph, comparison with Clusters
-\subsection{Advantages}
-\subsection{Limitation}
-Network Limitations, Availability, Stability of performance
-Benifits
-\subsection{Amazon Cluster compute}
-
-\section{Parallel Applications and 13 Dwarfs}
-Explain the 13 dwarfs and under the two sections explain N-body and FFT
-
-\subsection{N-Body Methods}
-MD, About the dwarf and application types optimisation, n2 and nlogn
-Communication pattern!!!
+\subsubsection{EC2 cluster compute} 
 
 
+\section{Parallel Applications and 13 Dwarfs}  
+Explain the 13 dwarfs and under the two sections explain N-body and FFT  
+\subsection{N-Body Methods}  
+MD, About the dwarf and application types optimisation, n2 and nlogn  
+Communication pattern!!!  
+\subsection{Spectral Methods}  
+In scientific computing, a class of techniques used to numerically solve differential equations involving the use of Fast Fouries Transform are called spectral methods  
+Fourier transform  
+Jean Baptiste Joseph Fourier (1768-1830) first employed what we now call Fourier transforms whilst working on the theory of heat   
+Linear transform which takes temporal or spatial information and converts into information which lies in the frequency domain  
+Who would use Fourier Transforms?   
+• Physics   
+– Cosmology (P3M N-body solvers)   
+– Fluid mechanics   
+– Quantum physics   
+– Signal and image processing   
+– Antenna studies   
+– Optics   
+• Numerical analysis   
+– Linear systems analysis   
+– Boundary value problems   
+– Large integer multiplication (Prime finding)   
+• Statistics   
+– Random process modelling   
+– Probability theory  
+{\underline Discrete Fourier Transform}  
+The discrete Fourier transform of N complex points fk is defined as   
+Communication pattern!!!  
+ 
 
-
-\subsection{Spectral Methods}
-In scientific computing, a class of techniques used to numerically solve differential equations involving the use of Fast Fouries Transform are called spectral methods
-
-Fourier transform
-Jean Baptiste Joseph Fourier (1768-1830) first employed what we now call Fourier transforms whilst working on the theory of heat 
-Linear transform which takes temporal or spatial information and converts into information which lies in the frequency domain
-Who would use Fourier Transforms? 
-• Physics 
-– Cosmology (P3M N-body solvers) 
-– Fluid mechanics 
-– Quantum physics 
-– Signal and image processing 
-– Antenna studies 
-– Optics 
-
-• Numerical analysis 
-– Linear systems analysis 
-– Boundary value problems 
-– Large integer multiplication (Prime finding) 
-
-• Statistics 
-– Random process modelling 
-– Probability theory
-
-{\underline Discrete Fourier Transform}
-The discrete Fourier transform of N complex points fk is defined as 
-
-
-Communication pattern!!!
-
-
-
-
-\chapter{Live Benchmark Tool Setup}
+\chapter{Live Benchmark Tool}
 \section{System Design}
 \subsection{Architecture}
 \subsection{Sequence diagram}
 \subsection{Database Design}
 
+\section{Initial findings and design decisions}
 \section{Instance types Used}
 Refer to graph in Background
 Why these types?
@@ -218,6 +303,16 @@ Why sungrid Engine
 Describe in detail
 \subsection{Admin panel}
 \subsection{User Dashboard}
+
+\section{Implementation and a}
+\subsection{Using Starcluster}
+\subsection{Cluster Management package}
+\subsection{Using Sun Grid Engine}
+\subsection{Creating Dashboard}
+
+\section{Benchmarking  programs}
+\subsection{Spectral Methods}
+\subsection{N-body}
 
 \chapter{Results and Analysis}
 \section{Serial}
@@ -237,14 +332,7 @@ History of execution, snapshot from dashboard
 \appendix
 % the appendix command just changes heading styles for appendices.
 
-\chapter{Cluster Computing Setup}
-\subsection{Using Starcluster}
-\subsection{Cluster Management package}
-\subsection{Using Sun Grid Engine}
-\subsection{Creating Dashboard}
-\chapter{Benchmarking  programs}
-\subsection{Spectral Methods}
-\subsection{N-body}
+
 
 \bibliographystyle{plain}
 \bibliography{dissertation}

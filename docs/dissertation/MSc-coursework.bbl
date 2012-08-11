@@ -1,5 +1,11 @@
 \begin{thebibliography}{1}
 
+\bibitem{armbrust2010view}
+M.~Armbrust, A.~Fox, R.~Griffith, A.D. Joseph, R.~Katz, A.~Konwinski, G.~Lee,
+  D.~Patterson, A.~Rabkin, I.~Stoica, et~al.
+\newblock A view of cloud computing.
+\newblock {\em Communications of the ACM}, 53(4):50--58, 2010.
+
 \bibitem{asanovic2008parallel}
 K.~Asanovic, R.~Bodik, J.~Demmel, T.~Keaveny, K.~Keutzer, J.D. Kubiatowicz,
   E.A. Lee, N.~Morgan, G.~Necula, D.A. Patterson, et~al.
@@ -7,5 +13,18 @@ K.~Asanovic, R.~Bodik, J.~Demmel, T.~Keaveny, K.~Keutzer, J.D. Kubiatowicz,
   based on the berkeley view.
 \newblock {\em EECS Department, University of California, Berkeley, Tech. Rep},
   2008.
+
+\bibitem{dikaiakos2009cloud}
+M.D. Dikaiakos, D.~Katsaros, P.~Mehra, G.~Pallis, and A.~Vakali.
+\newblock Cloud computing: Distributed internet computing for it and scientific
+  research.
+\newblock {\em Internet Computing, IEEE}, 13(5):10--13, 2009.
+
+\bibitem{li2010escience}
+J.~Li, M.~Humphrey, D.~Agarwal, K.~Jackson, C.~van Ingen, and Y.~Ryu.
+\newblock escience in the cloud: A modis satellite data reprojection and
+  reduction pipeline in the windows azure platform.
+\newblock In {\em Parallel \& Distributed Processing (IPDPS), 2010 IEEE
+  International Symposium on}, pages 1--10. IEEE, 2010.
 
 \end{thebibliography}

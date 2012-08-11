@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.6.26)  1 AUG 2012 00:28
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.6.26)  6 AUG 2012 01:20
 entering extended mode
  %&-line parsing enabled.
 **MSc-coursework.tex
@@ -130,11 +130,11 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 104.
  (./MSc-coursework.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 3.
+(Font)              <12> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 3.
+(Font)              <8> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 3.
+(Font)              <6> on input line 1.
 
 [1
 
@@ -157,52 +157,58 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 113.
- [1]
+ [1] [1]
 Chapter 1.
-[1
-
-]
-Chapter 2.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 128.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 141.
 [2
 
-] [3] [4]
-Chapter 3.
-[5
+]
 
-] [6]
-Chapter 4.
+LaTeX Warning: Citation `Magellan_Final_Report.pdf' on page 3 undefined on inpu
+t line 170.
+
+[3] [4]
+Overfull \hbox (0.15057pt too wide) in paragraph at lines 243--245
+\T1/ptm/m/n/12 An Ama-zon Ma-chine Im-age (AMI) is a pre-configured tem-plate o
+p-er-at-ing sys-tem which
+ []
+
+[5] [6]
+Chapter 2.
 [7
 
 ]
-Chapter 5.
+Chapter 3.
 [8
 
 ]
-Appendix A.
+Chapter 4.
 [9
 
 ]
-Appendix B.
+Chapter 5.
 (./MSc-coursework.bbl [10
 
 ]) [11
 
-] (./MSc-coursework.aux) ) 
+] (./MSc-coursework.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1274 strings out of 495061
- 14840 string characters out of 1182621
- 74175 words of memory out of 3000000
- 4467 multiletter control sequences out of 15000+50000
+ 1278 strings out of 495061
+ 14921 string characters out of 1182621
+ 74184 words of memory out of 3000000
+ 4471 multiletter control sequences out of 15000+50000
  33567 words of font info for 45 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 27i,12n,37p,706b,244s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc
-}</usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-t
-exlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/u
-rw/times/utmri8a.pfb>
-Output written on MSc-coursework.pdf (18 pages, 89761 bytes).
+ 27i,12n,37p,728b,244s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
+ve/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/t
+imes/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
+Output written on MSc-coursework.pdf (18 pages, 101204 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
