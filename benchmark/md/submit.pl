@@ -1,10 +1,20 @@
 #!/usr/bin/perl -w
 
 $executable="benchmark";
+$threshold=$ARGV[2];
+$commandline=$ARGV[1];
 $numproc=$ARGV[0];
+
+system("sed '/#INPUT=/ c INPUT=\`echo $commandline\`' benchmark.sge > benchmark.temp");
+system("mv benchmark.temp benchmark.sge");
+
+system("sed '/#define Nbody/ c #define Nbody $commandline' coord.h > coord.temp");
+system("mv coord.temp coord.h");
 
 #Compile the source
 system("make");
+
+        #update input datafile name
 
         # submit job
         $cmd = "qsub -cwd -pe orte $numproc $executable.sge";
@@ -20,7 +30,8 @@ system("make");
         print "Job ID: $jobId submitted for $numproc processes\n";
 
         #check queue
-        while(1)
+        $starttime = time();
+        while($starttime+$threshold > time())
         {
                 my $line = "";
 
@@ -33,8 +44,6 @@ system("make");
                 close QUEUE;
 
                 last if($line eq "");
-                sleep(2);
+                sleep (1);
         }
 
-        print "Job ID: $jobId completed $numproc processes\n";
-        my $file = "image.sge.o$jobId";

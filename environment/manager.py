@@ -19,6 +19,10 @@ def validate():
 		print "Benchmark script "+runscript+" doesn't exist, provide path -b <benchmark folder path>"
 		sys.exit()
 
+	if (threshold <= 1):
+		print "Threshold should be greater than 1 second"
+		sys.exit()
+
 	clusterparams = " -n " + str(imageid) + " -s " + str(size) + " -u " + str(username) + " -i " + str(instancetype)
 	return clusterparams
 
@@ -42,10 +46,12 @@ def parseOptions():
                   	  help="Path to benchmark results folder", metavar="FILE")
 	parser.add_option("-a",dest="archive", type="int", default=0,
                           help="Archive results to database (0/1)")
-	parser.add_option("-d",dest="datainput", type="string", default="",
+	parser.add_option("-d",dest="inputdata", type="string", default="",
                           help="Input parameters (to change input files/parameters)")
+	parser.add_option("-T",dest="threshold", type="int", default="3600",
+                          help="Threshold (seconds)")
 	(options, args) = parser.parse_args()
-	return (options.clustername, options.imageid, options.instancetype, options.size, options.benchmark, options.userid, options.results, options.archive, options.datainput)
+	return (options.clustername, options.imageid, options.instancetype, options.size, options.benchmark, options.userid, options.results, options.archive, options.inputdata, options.threshold)
 
 #Start cluster using starcluster tool, waiting for ready
 def startCluster():
@@ -80,7 +86,7 @@ def transferFiles():
 		output,stderr = process.communicate()
         	status = process.poll()
 		#get frontend nodename
-		print output
+		#print output
 	except StandardError, err: #clean up
         	print err
 		terminateCluster()
@@ -91,8 +97,7 @@ def transferFiles():
 def runBenchmark():
 	print "\nHawki>>> Running Benchmark ..."
 	try:
-		time.sleep(60)
-		process = subprocess.Popen("starcluster sshmaster --user "+username + " " + clustername + " ./" + runscript + " "+str(size)+" \\\" "+inputdata+" \\\"", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+		process = subprocess.Popen("starcluster sshmaster --user "+username + " " + clustername + " ./" + runscript + " "+str(size)+" \\\" "+inputdata+" \\\" "+str(threshold), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 		output,stderr = process.communicate()
 		status = process.poll()
 		print output
@@ -158,7 +163,7 @@ def saveResults():
 	                cursor.execute(sql)
 	        	benchmarkid = cursor.fetchone()#benchmarkid
 			benchmarkid=benchmarkid[0]
-			print benchmarkid
+			#print benchmarkid
 	                db.commit()
 	        except:
 	                db.rollback()
@@ -220,9 +225,9 @@ def terminateCluster():
 
 runscript="submit.pl"
 username="sgeadmin"
-(clustername, imageid, instancetype, size, benchmark, userid, results, archive, inputdata) = parseOptions()
+(clustername, imageid, instancetype, size, benchmark, userid, results, archive, inputdata, threshold) = parseOptions()
 clusterparams=validate()
-print "starcluster sshmaster --user "+username + " " + clustername + " ./" + runscript + " "+str(size)+" \\\" "+inputdata+" \\\""
+#print "starcluster sshmaster --user "+username + " " + clustername + " ./" + runscript + " "+str(size)+" \\\" "+inputdata+" \\\" "+threshold
 startCluster()
 transferFiles()
 runBenchmark()

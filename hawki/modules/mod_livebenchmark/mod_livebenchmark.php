@@ -51,7 +51,7 @@ else
 
 
 //Select all published instances 
-$instancelist="SELECT `instanceid`, `instancename`, `description`, `vendor` from cx_instances where state=1 ORDER BY instancename ASC";
+$instancelist="SELECT `instanceid`, `instancename`, `imageid`, `vendor` from cx_instances where state=1 ORDER BY instancename ASC";
 $database->setQuery ($instancelist);
 $database->query();
 
@@ -122,7 +122,7 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
 	        $inputs = $database->loadObjectList();
 	        $url=$_SERVER['REQUEST_URI']."/";
 	?>
-	        <div>
+	        <div style="border: 1px solid #999; padding : 10px;">
 	        <form action="" method="post">
 			<input type=hidden name="benchmarkid" value="<?php echo $benchmarkid; ?>">
 			<input type=hidden name="instanceid" value="<?php echo $instanceid; ?>">
@@ -144,16 +144,20 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
         	                 }
         	                 ?>
         	        </select>
+			<br />
+			Threshold (secs): <input name="threshold" size=5 maxlength=5 />
 		<input type=submit value="Run Benchmark" />
 		</form>
 		</div>
+		<div>
 	<?php
 	}	
 	
 	
 	if(!($inputid==""))//RUN BENCHMARK
 	{
-		echo "<br />Running Benchmark (This will take a few minute)...";
+		$threshold=$_POST['threshold'];
+		echo "<br />Running Benchmark (This will take a few minutes)...";
 		$benchmark="";
 		$input="";
 		$instance="";
@@ -184,7 +188,7 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
                 }
 
 		//Get instance name using instanceid
-                $instancelist="SELECT `instancename`, `description`, `vendor` from cx_instances where instanceid=$instanceid and state=1";
+                $instancelist="SELECT `instancename`, `imageid`, `vendor` from cx_instances where instanceid=$instanceid and state=1";
                 $database->setQuery ($instancelist);
                 $database->query();
                 
@@ -198,10 +202,14 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
 
 
 		//RUN using sourcepath, resultpath, inputstring
-		echo $benchmark['sourcepath'].$benchmark['resultpath'].$input['inputstring'].$instance['instancename'];
+		#echo $benchmark['sourcepath'].$benchmark['resultpath'].$input['inputstring'].$instance['instancename'];
 		echo "<pre>";
 		#TODO get userid
-		$cmd = "python /home/ubuntu/Hawk-i/environment/manager.py -a 1 -u $userid -t ".$instance['instancename']." -b /home/ubuntu/Hawk-i/benchmark/".$benchmark['sourcepath']." -s $instancecount -d \"".$input['inputstring']."\"";
+		$cmd = "python /home/ubuntu/Hawk-i/environment/manager.py -a 1 -u $userid -t ".$instance['instancename']." -i ".$instance['imageid']." -b /home/ubuntu/Hawk-i/benchmark/".$benchmark['sourcepath']." -s $instancecount -d \"".$input['inputstring']."\" ";
+		if($threshold!="")
+		{
+			$cmd = $cmd." -T $threshold";
+		}
 		echo $cmd;
 		if(system($cmd))
 		{
@@ -216,3 +224,4 @@ if (!($benchmarkid=="" && $instanceid=="" && $instancecount==""))
 }
 
 ?>
+	</div>
