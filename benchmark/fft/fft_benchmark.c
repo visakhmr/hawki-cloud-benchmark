@@ -26,7 +26,7 @@ double second()
 
 int main(int argc, char **argv)
 {
-  	int i;                    /* generic index */
+  	long long i;                    /* generic index */
  	long long N;                    /* number of points in FFT */
   	double (*x)[2];           /* pointer to time-domain samples */
   	double (*X)[2];           /* pointer to frequency-domain samples */
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
  	clock_t c0, c1; /* clock_t is defined on <bits/types.h> as long */
 
 	/* Get input size of time-domain samples x. */
-	N= atoi(argv[1]);
+	N= atoll(argv[1]);
 	
   	/* Check that N = 2^n for some integer n >= 1. */
   	if(N >= 2)
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 	// For N >=2, we now have N = 2^n iff i = 1
   	if(N < 2 || i != 1)
     	{
-      		printf(", which does not equal 2^n for an integer n >= 1.");
+      		printf("%lld, which does not equal 2^n for an integer n >= 1.", N);
       		exit(EXIT_FAILURE);
     	}
 

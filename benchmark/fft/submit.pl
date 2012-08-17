@@ -5,6 +5,7 @@ $threshold=$ARGV[2];
 $commandline=$ARGV[1];
 $numproc=$ARGV[0];
 
+system("swapoff -a");
 system("sed '/#INPUT=/ i INPUT=\`echo $commandline\`' benchmark.sge > benchmark.temp");
 system("mv benchmark.temp benchmark.sge");
 sleep (2);

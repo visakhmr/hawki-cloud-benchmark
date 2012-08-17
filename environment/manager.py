@@ -48,7 +48,7 @@ def parseOptions():
                           help="Archive results to database (0/1)")
 	parser.add_option("-d",dest="inputdata", type="string", default="",
                           help="Input parameters (to change input files/parameters)")
-	parser.add_option("-T",dest="threshold", type="int", default="3600",
+	parser.add_option("-T",dest="threshold", type="int", default="36000",
                           help="Threshold (seconds)")
 	(options, args) = parser.parse_args()
 	return (options.clustername, options.imageid, options.instancetype, options.size, options.benchmark, options.userid, options.results, options.archive, options.inputdata, options.threshold)

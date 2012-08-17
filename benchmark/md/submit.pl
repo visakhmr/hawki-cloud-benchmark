@@ -5,9 +5,11 @@ $threshold=$ARGV[2];
 $commandline=$ARGV[1];
 $numproc=$ARGV[0];
 
+system("swapoff -a");
 system("sed '/#INPUT=/ c INPUT=\`echo $commandline\`' benchmark.sge > benchmark.temp");
 system("mv benchmark.temp benchmark.sge");
 
+#Patch to change coord.h before make
 system("sed '/#define Nbody/ c #define Nbody $commandline' coord.h > coord.temp");
 system("mv coord.temp coord.h");
 

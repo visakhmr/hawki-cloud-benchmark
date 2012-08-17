@@ -1,4 +1,4 @@
-CC = gcc
+CC = mpicc
 CFLAGS = -c -lm 
 LDFLAGS =
 SOURCES = fft_benchmark.c
