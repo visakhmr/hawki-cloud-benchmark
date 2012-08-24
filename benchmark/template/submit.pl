@@ -1,4 +1,15 @@
 #!/usr/bin/perl -w
+#Do not modify this file
+#     #
+#     #    ##    #    #  #    #             #
+#     #   #  #   #    #  #   #              
+#######  #    #  #    #  ####    #####      #
+#     #  ######  # ## #  #  #               #
+#     #  #    #  ##  ##  #   #              #
+#     #  #    #  #    #  #    #             #
+
+
+
 
 $executable="benchmark";
 $threshold=$ARGV[2];

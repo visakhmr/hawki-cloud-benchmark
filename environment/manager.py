@@ -227,7 +227,7 @@ runscript="submit.pl"
 username="sgeadmin"
 (clustername, imageid, instancetype, size, benchmark, userid, results, archive, inputdata, threshold) = parseOptions()
 clusterparams=validate()
-#print "starcluster sshmaster --user "+username + " " + clustername + " ./" + runscript + " "+str(size)+" \\\" "+inputdata+" \\\" "+threshold
+print "starcluster sshmaster --user "+username + " " + clustername + " ./" + runscript + " "+str(size)+" \\\" "+inputdata+" \\\" "+str(threshold)
 startCluster()
 transferFiles()
 runBenchmark()

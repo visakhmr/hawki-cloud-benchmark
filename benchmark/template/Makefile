@@ -1,3 +1,5 @@
+#modify compiler and source files
+#do not change the executable name since it is used in submit.pl
 CC = mpicc
 CFLAGS = -c -lm 
 LDFLAGS =

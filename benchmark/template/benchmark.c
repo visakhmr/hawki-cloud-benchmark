@@ -1,5 +1,6 @@
 /*******************************
 Sample benchmark program
+This should be the main file
 *******************************/
 
 #include <stdio.h>
@@ -7,7 +8,7 @@ Sample benchmark program
 
 int main(int argc, char **argv)
 {
- 
+//TODO Add benchmark source code or call a library function 
 
 // IMPORTANT print success message 
   printf("\nstatus sucess\n");

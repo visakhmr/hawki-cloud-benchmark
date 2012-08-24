@@ -1,7 +1,7 @@
 CC = mpicc
 CFLAGS = -c -lm 
 LDFLAGS =
-SOURCES = benchmark.c
+SOURCES = pingpong.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=benchmark
 ARGS=

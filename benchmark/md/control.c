@@ -1,5 +1,5 @@
 /*
- * Control program for the MD update
+ * Control program to update 
  *
  */
 #include <stdio.h>
@@ -23,10 +23,10 @@ int main(int argc, char *argv){
   int i,j;
   double  t0, t1;	    /* wall time variables */
   double dt=0.02;  /*  timestep value */
-  int Nstep=1;
-/* read the initial data from a file */
+  int Nstep=1; /*One step for benchmark*/
   collisions=0;
 
+/*Generate input, Assign dummy values*/
   for(i=0;i<Nbody;i++){
     	particle[i].mass=1.200000;
 	particle[i].visc=0.010000;

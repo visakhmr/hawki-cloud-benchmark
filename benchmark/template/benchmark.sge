@@ -35,6 +35,7 @@
 
 MPIEXE=`basename $REQUEST .sge`
 INPUT=`echo data.txt`
+INPUT=`echo `
 #INPUT=`echo data.txt`
 
 echo "--------------------------------------------------"
