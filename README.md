@@ -10,9 +10,6 @@ The project has 3 parts separated as 3 folders:
 2) environment: A manager script in python to accept the input parameters (from portlets or from console) and run benchmarks after creating a cluster with the specified configuration.
 3) benchmarks: A library of benchmarks/programs to be executed in a cluster. You can upload your own programs though the portal.
 
-URL: http://ec2-23-20-179-14.compute-1.amazonaws.com/hawki
-
-Contact us for login details.
 
 Simple flow of events in a typical execution will be:
 1) Open the portal
